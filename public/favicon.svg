@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <rect width="512" height="512" rx="112" stroke="rgba(16, 185, 129, 0.25)" stroke-width="4" />
+  
+  <!-- Stylized Shield & Strength Kinetic Lines -->
+  <g transform="translate(106, 106)" filter="url(#glow)">
+    <!-- Dumbbell / Pelvic stability geometric emblem -->
+    <path d="M150 40 L190 40 C210 40 220 50 220 70 L220 230 C220 250 210 260 190 260 L150 260 C130 260 120 250 120 230 L120 70 C120 50 130 40 150 40 Z" fill="url(#accentGrad)" opacity="0.15" />
+    
+    <!-- Central Shield & Spine / Pelvic symmetry icon -->
+    <path d="M150 20 L240 60 C240 170 180 235 150 260 C120 235 60 170 60 60 Z" 
+          stroke="url(#accentGrad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Kinetic Energy Bolt & Checkmark Balance -->
+    <path d="M130 140 L150 165 L200 105" 
+          stroke="#ffffff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="150" cy="205" r="14" fill="#10b981" />
+  </g>
+</svg>
