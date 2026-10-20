@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
 import { DEFAULT_THR_PLAN } from './data/workoutPlan';
-import type { DayOfWeek, HistoryEntry, SessionType, SetLog, WeekProgress, WorkoutPlan } from './types/workout';
+import type { DayOfWeek, HistoryEntry, SessionType, SetLog, WeekProgress, WorkoutPlan, WeightLogEntry } from './types/workout';
 import {
   addHistoryEntry,
+  addWeightLogEntry,
+  deleteWeightLogEntry,
   ensurePlanSessions,
   getActivePlanId,
   getTodayDayOfWeek,
   loadHistory,
   loadWeekProgress,
+  loadWeightLogs,
   loadWorkoutPlans,
   resetCurrentWeek,
   saveActivePlanId,
@@ -48,6 +51,7 @@ export function App() {
 
   const [progress, setProgress] = useState<WeekProgress>(() => loadWeekProgress(activePlan));
   const [history, setHistory] = useState<HistoryEntry[]>(() => loadHistory());
+  const [weightLogs, setWeightLogs] = useState<WeightLogEntry[]>(() => loadWeightLogs());
 
   // Rest Timer State
   const [timerModalOpen, setTimerModalOpen] = useState(false);
@@ -304,12 +308,37 @@ export function App() {
     setProgress(fresh);
   };
 
+  // Weight Logging Handlers
+  const handleUpdateWeight = (weightKg: number, note?: string) => {
+    setProgress((p) => ({ ...p, userWeightKg: weightKg }));
+    const now = new Date();
+    const newLog: WeightLogEntry = {
+      id: `weight-${Date.now()}`,
+      date: now.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }),
+      time: now.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }),
+      timestamp: Date.now(),
+      weightKg,
+      displayWeight: progress.unit === 'kg' ? weightKg : Math.round(weightKg * 2.20462 * 10) / 10,
+      unit: progress.unit,
+      note
+    };
+    addWeightLogEntry(newLog);
+    setWeightLogs(loadWeightLogs());
+  };
+
+  const handleDeleteWeightLog = (id: string) => {
+    deleteWeightLogEntry(id);
+    setWeightLogs(loadWeightLogs());
+  };
+
   return (
     <div>
       <Navbar
         unit={progress.unit}
         userWeightKg={progress.userWeightKg || 75}
-        onUpdateWeight={(w) => setProgress((p) => ({ ...p, userWeightKg: w }))}
+        onUpdateWeight={handleUpdateWeight}
+        weightLogs={weightLogs}
+        onDeleteWeightLog={handleDeleteWeightLog}
         onToggleUnit={() => setProgress((p) => ({ ...p, unit: p.unit === 'kg' ? 'lbs' : 'kg' }))}
         soundEnabled={progress.soundEnabled}
         onToggleSound={() => setProgress((p) => ({ ...p, soundEnabled: !p.soundEnabled }))}
@@ -317,7 +346,10 @@ export function App() {
         onOpenHistory={() => setHistoryModalOpen(true)}
         currentDay={currentDay}
         onSelectDay={setCurrentDay}
+        plans={plans}
+        activePlanId={activePlan.id}
         activePlanName={activePlan.name}
+        onSelectPlan={handleSelectPlan}
         onOpenPlanManager={() => setPlanManagerOpen(true)}
       />
 
@@ -488,12 +520,14 @@ export function App() {
         onClose={() => setHistoryModalOpen(false)}
         history={history}
         progress={progress}
+        weightLogs={weightLogs}
         onResetWeek={handleResetWeek}
         onDataImported={() => {
           setPlans(loadWorkoutPlans());
           setActivePlanId(getActivePlanId());
           setProgress(loadWeekProgress());
           setHistory(loadHistory());
+          setWeightLogs(loadWeightLogs());
         }}
       />
 

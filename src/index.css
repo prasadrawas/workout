@@ -1526,6 +1526,163 @@ h1, h2, h3, h4, .font-display {
   flex-shrink: 0;
 }
 
+.plan-switcher-container {
+  position: relative;
+  display: inline-block;
+}
+
+.plan-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 290px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+  overflow: hidden;
+  animation: dropdownFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.plan-dropdown-header {
+  display: flex;
+  align-items: center;
+  justifyContent: space-between;
+  padding: 12px 14px 8px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.plan-dropdown-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.plan-dropdown-count {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--accent-light);
+  background: var(--accent-glow);
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+}
+
+.plan-dropdown-list {
+  padding: 6px;
+  max-height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.plan-dropdown-item {
+  display: flex;
+  align-items: center;
+  justifyContent: space-between;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.plan-dropdown-item:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border);
+}
+
+.plan-dropdown-item.selected {
+  background: var(--accent-glow);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.plan-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.plan-item-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plan-item-tag {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plan-dropdown-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 2px 0;
+}
+
+.plan-dropdown-footer {
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: var(--bg-secondary);
+}
+
+.dropdown-footer-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.dropdown-footer-btn:hover {
+  background: var(--bg-card);
+  color: var(--text-white);
+}
+
+.dropdown-footer-btn.highlight {
+  color: var(--accent-light);
+}
+
+.dropdown-footer-btn.highlight:hover {
+  background: var(--accent-glow);
+  color: #ffffff;
+}
+
 /* Modal layout */
 .plan-manager-modal {
   max-width: 600px !important;

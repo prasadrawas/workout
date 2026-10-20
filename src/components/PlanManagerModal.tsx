@@ -404,6 +404,16 @@ export function PlanManagerModal({
                 <Upload size={16} />
                 <span>Import JSON</span>
               </button>
+              <a 
+                href="./plan.example.json" 
+                download="plan.example.json" 
+                className="btn-tool-action secondary"
+                title="Download plan.example.json template"
+                style={{ textDecoration: 'none' }}
+              >
+                <Download size={16} />
+                <span>Download .example Template</span>
+              </a>
             </div>
 
             <div className="plans-grid">
@@ -713,6 +723,17 @@ export function PlanManagerModal({
                   style={{ display: 'none' }}
                 />
               </label>
+
+              <a
+                href="./plan.example.json"
+                download="plan.example.json"
+                className="btn-file-upload"
+                style={{ textDecoration: 'none' }}
+                title="Download plan.example.json template"
+              >
+                <Download size={16} />
+                <span>Download .example Template</span>
+              </a>
             </div>
 
             {importError && (

@@ -1,10 +1,11 @@
-import type { DayOfWeek, HistoryEntry, SessionPlan, SetLog, WeekProgress, WorkoutPlan } from '../types/workout';
-import { DEFAULT_THR_PLAN, PRESET_PLANS } from '../data/workoutPlan';
+import type { DayOfWeek, HistoryEntry, SessionPlan, SetLog, WeekProgress, WeightLogEntry, WorkoutPlan } from '../types/workout';
+import { BUNDLED_JSON_PLANS, DEFAULT_PLAN } from '../data/plans';
 
 const STORAGE_KEY_PROGRESS = 'hipstrong_workout_progress_v1';
 const STORAGE_KEY_HISTORY = 'hipstrong_workout_history_v1';
 const STORAGE_KEY_PLANS = 'hipstrong_workout_plans_v2';
 const STORAGE_KEY_ACTIVE_PLAN = 'hipstrong_active_plan_id_v2';
+const STORAGE_KEY_WEIGHT_LOGS = 'hipstrong_weight_logs_v1';
 
 export function getTodayDayOfWeek(): DayOfWeek {
   const days: DayOfWeek[] = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
@@ -21,18 +22,32 @@ export function getCurrentWeekId(): string {
 }
 
 // -------------------------------------------------------------
-// WORKOUT PLANS MANAGEMENT
+// WORKOUT PLANS MANAGEMENT (Auto-discovers all src/data/plans/*.json)
 // -------------------------------------------------------------
 export function loadWorkoutPlans(): WorkoutPlan[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY_PLANS);
-    if (!raw) return PRESET_PLANS;
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed) || parsed.length === 0) return PRESET_PLANS;
-    return parsed;
+    const planMap = new Map<string, WorkoutPlan>();
+
+    // 1. Register all bundled JSON plans from src/data/plans/
+    BUNDLED_JSON_PLANS.forEach((p) => planMap.set(p.id, p));
+
+    // 2. Merge any user-saved / custom plans from localStorage
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        parsed.forEach((p: WorkoutPlan) => {
+          if (p && p.id) {
+            planMap.set(p.id, p);
+          }
+        });
+      }
+    }
+
+    return Array.from(planMap.values());
   } catch (e) {
     console.error('Failed to load plans from localStorage', e);
-    return PRESET_PLANS;
+    return BUNDLED_JSON_PLANS;
   }
 }
 
@@ -51,7 +66,7 @@ export function getActivePlanId(): string {
   } catch (e) {
     console.error('Failed to get active plan id', e);
   }
-  return DEFAULT_THR_PLAN.id;
+  return DEFAULT_PLAN.id;
 }
 
 export function saveActivePlanId(planId: string): void {
@@ -116,7 +131,7 @@ function buildSessionProgress(session: SessionPlan) {
 
 export function initializeDefaultProgress(plan?: WorkoutPlan): WeekProgress {
   const currentWeekId = getCurrentWeekId();
-  const targetPlan = plan || DEFAULT_THR_PLAN;
+  const targetPlan = plan || DEFAULT_PLAN;
   const sessions: Record<string, any> = {};
 
   targetPlan.days.forEach((day) => {
@@ -240,13 +255,45 @@ export function resetCurrentWeek(plan?: WorkoutPlan): WeekProgress {
   return newProgress;
 }
 
+export function loadWeightLogs(): WeightLogEntry[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_WEIGHT_LOGS);
+    if (!raw) return [];
+    return JSON.parse(raw);
+  } catch (e) {
+    console.error('Failed to load weight logs', e);
+    return [];
+  }
+}
+
+export function addWeightLogEntry(entry: WeightLogEntry): void {
+  try {
+    const current = loadWeightLogs();
+    const updated = [entry, ...current.filter(w => w.id !== entry.id)].slice(0, 300);
+    localStorage.setItem(STORAGE_KEY_WEIGHT_LOGS, JSON.stringify(updated));
+  } catch (e) {
+    console.error('Failed to save weight log', e);
+  }
+}
+
+export function deleteWeightLogEntry(id: string): void {
+  try {
+    const current = loadWeightLogs();
+    const updated = current.filter(w => w.id !== id);
+    localStorage.setItem(STORAGE_KEY_WEIGHT_LOGS, JSON.stringify(updated));
+  } catch (e) {
+    console.error('Failed to delete weight log', e);
+  }
+}
+
 export function exportBackupJSON(): string {
   const data = {
     exportDate: new Date().toISOString(),
     plans: loadWorkoutPlans(),
     activePlanId: getActivePlanId(),
     progress: loadWeekProgress(),
-    history: loadHistory()
+    history: loadHistory(),
+    weightLogs: loadWeightLogs()
   };
   return JSON.stringify(data, null, 2);
 }
@@ -266,9 +313,13 @@ export function importBackupJSON(jsonStr: string): boolean {
     if (data.history && Array.isArray(data.history)) {
       localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(data.history));
     }
+    if (data.weightLogs && Array.isArray(data.weightLogs)) {
+      localStorage.setItem(STORAGE_KEY_WEIGHT_LOGS, JSON.stringify(data.weightLogs));
+    }
     return true;
   } catch (e) {
     console.error('Failed to import backup JSON', e);
     return false;
   }
 }
+

@@ -109,3 +109,14 @@ export interface ProgressionPhase {
   goal: string;
   recommendations: string[];
 }
+
+export interface WeightLogEntry {
+  id: string;
+  date: string;
+  time: string;
+  timestamp: number;
+  weightKg: number;
+  displayWeight: number;
+  unit: 'kg' | 'lbs';
+  note?: string;
+}

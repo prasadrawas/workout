@@ -1,0 +1,417 @@
+{
+  "$schema": "Workout Plan Template - Follow this structure when creating new plans",
+  "id": "my-custom-workout-plan",
+  "name": "My Custom Training Plan",
+  "focusTag": "Strength & Hypertrophy",
+  "description": "Example 7-day routine template with morning and evening sessions. Customize exercises, sets, reps, and rest timers as needed.",
+  "isCustom": true,
+  "days": [
+    {
+      "dayId": "monday",
+      "dayName": "Monday",
+      "shortName": "Mon",
+      "morning": {
+        "id": "custom-mon-morning",
+        "title": "Upper Body Push & Pull",
+        "subtitle": "Compound strength emphasis",
+        "location": "Gym",
+        "durationEstimate": "50–60 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "custom-db-bench",
+            "name": "Dumbbell Bench Press",
+            "targetSets": 3,
+            "targetReps": "8–10 reps",
+            "defaultRestSec": 90,
+            "category": "push",
+            "met": 4.8,
+            "durationSecPerSet": 45,
+            "notes": "Plant feet firmly, control the eccentric descent."
+          },
+          {
+            "id": "custom-seated-row",
+            "name": "Seated Cable Row",
+            "targetSets": 3,
+            "targetReps": "10–12 reps",
+            "defaultRestSec": 75,
+            "category": "pull",
+            "met": 4.5,
+            "durationSecPerSet": 40,
+            "notes": "Drive elbows back, maintain tall neutral spine."
+          },
+          {
+            "id": "custom-overhead-press",
+            "name": "Seated Dumbbell Shoulder Press",
+            "targetSets": 3,
+            "targetReps": "10–12 reps",
+            "defaultRestSec": 75,
+            "category": "push",
+            "met": 4.0,
+            "durationSecPerSet: ": 40,
+            "notes": "Neutral grip is joint-friendly."
+          }
+        ]
+      },
+      "evening": {
+        "id": "custom-mon-evening",
+        "title": "Chest & Thoracic Mobility",
+        "subtitle": "Post-workout tension release",
+        "location": "Home",
+        "durationEstimate": "15 min",
+        "exercises": [
+          {
+            "id": "custom-doorway-stretch",
+            "name": "Doorway Pec Stretch",
+            "targetSets": 2,
+            "targetReps": "30s hold per side",
+            "defaultRestSec": 30,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.3,
+            "durationSecPerSet": 30,
+            "notes": "Gentle opening; breathe deeply."
+          }
+        ]
+      }
+    },
+    {
+      "dayId": "tuesday",
+      "dayName": "Tuesday",
+      "shortName": "Tue",
+      "morning": {
+        "id": "custom-tue-morning",
+        "title": "Lower Body & Quads",
+        "subtitle": "Knee-dominant leg development",
+        "location": "Gym",
+        "durationEstimate": "45–55 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "custom-leg-press",
+            "name": "Leg Press (Comfortable Depth)",
+            "targetSets": 3,
+            "targetReps": "10–12 reps",
+            "defaultRestSec": 90,
+            "category": "legs",
+            "met": 5.5,
+            "durationSecPerSet": 45,
+            "notes": "Keep hips and lower back flat against backrest."
+          },
+          {
+            "id": "custom-leg-ext",
+            "name": "Leg Extension",
+            "targetSets": 3,
+            "targetReps": "12–15 reps",
+            "defaultRestSec": 60,
+            "category": "legs",
+            "met": 3.8,
+            "durationSecPerSet": 40,
+            "notes": "Smooth controlled tempo."
+          }
+        ]
+      },
+      "evening": {
+        "id": "custom-tue-evening",
+        "title": "Quad & Hip Flexor Reset",
+        "subtitle": "Recovery stretching",
+        "location": "Home",
+        "durationEstimate": "15 min",
+        "exercises": [
+          {
+            "id": "custom-hip-flexor-stretch",
+            "name": "Half-Kneeling Hip Flexor Stretch",
+            "targetSets": 2,
+            "targetReps": "30s hold per side",
+            "defaultRestSec": 30,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.3,
+            "durationSecPerSet": 30,
+            "notes": "Posterior pelvic tuck; no anterior hip pinch."
+          }
+        ]
+      }
+    },
+    {
+      "dayId": "wednesday",
+      "dayName": "Wednesday",
+      "shortName": "Wed",
+      "morning": {
+        "id": "custom-wed-morning",
+        "title": "Active Recovery Cardio & Core",
+        "subtitle": "Cardiovascular circulation",
+        "location": "Gym",
+        "durationEstimate": "35–45 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "custom-treadmill-walk",
+            "name": "Incline Treadmill Walk",
+            "targetSets": 1,
+            "targetReps": "20 minutes steady walk",
+            "defaultRestSec": 0,
+            "category": "cardio",
+            "isTimeBased": true,
+            "met": 4.5,
+            "durationSecPerSet": 1200,
+            "notes": "Comfortable Zone 2 pace."
+          },
+          {
+            "id": "custom-deadbug",
+            "name": "Deadbug Core Control",
+            "targetSets": 3,
+            "targetReps": "10 reps per side",
+            "defaultRestSec": 60,
+            "category": "core",
+            "met": 3.8,
+            "durationSecPerSet": 40,
+            "notes": "Lower back pinned firmly to the ground."
+          }
+        ]
+      },
+      "evening": {
+        "id": "custom-wed-evening",
+        "title": "Spine & Thoracic Flow",
+        "subtitle": "Gentle relaxation",
+        "location": "Home",
+        "durationEstimate": "15 min",
+        "exercises": [
+          {
+            "id": "custom-cat-cow",
+            "name": "Cat-Camel Spinal Articulation",
+            "targetSets": 2,
+            "targetReps": "10 smooth reps",
+            "defaultRestSec: ": 30,
+            "category": "mobility",
+            "met": 2.3,
+            "durationSecPerSet": 45,
+            "notes": "Coordinate motion with natural deep breathing."
+          }
+        ]
+      }
+    },
+    {
+      "dayId": "thursday",
+      "dayName": "Thursday",
+      "shortName": "Thu",
+      "morning": {
+        "id": "custom-thu-morning",
+        "title": "Upper Body Shoulders & Arms",
+        "subtitle": "Accessory hypertrophy",
+        "location": "Gym",
+        "durationEstimate": "45–55 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "custom-lat-pulldown",
+            "name": "Lat Pulldown",
+            "targetSets": 3,
+            "targetReps": "10–12 reps",
+            "defaultRestSec": 75,
+            "category": "pull",
+            "met": 4.2,
+            "durationSecPerSet": 40,
+            "notes": "Pull to collarbone, squeeze shoulder blades."
+          },
+          {
+            "id": "custom-lateral-raise",
+            "name": "Dumbbell Lateral Raise",
+            "targetSets": 3,
+            "targetReps": "12–15 reps",
+            "defaultRestSec": 60,
+            "category": "push",
+            "met": 3.5,
+            "durationSecPerSet": 35,
+            "notes": "Control the descent, zero body swinging."
+          }
+        ]
+      },
+      "evening": {
+        "id": "custom-thu-evening",
+        "title": "Shoulder & Neck Release",
+        "subtitle": "Upper body mobility",
+        "location": "Home",
+        "durationEstimate": "15 min",
+        "exercises": [
+          {
+            "id": "custom-trap-stretch",
+            "name": "Seated Upper Trap Stretch",
+            "targetSets": 2,
+            "targetReps": "30s hold per side",
+            "defaultRestSec": 30,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.3,
+            "durationSecPerSet": 30,
+            "notes": "Gentle guidance, keep shoulders relaxed down."
+          }
+        ]
+      }
+    },
+    {
+      "dayId": "friday",
+      "dayName": "Friday",
+      "shortName": "Fri",
+      "morning": {
+        "id": "custom-fri-morning",
+        "title": "Lower Body Glutes & Hamstrings",
+        "subtitle": "Posterior chain loading",
+        "location": "Gym",
+        "durationEstimate": "50–60 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "custom-hamstring-curl",
+            "name": "Lying or Seated Hamstring Curl",
+            "targetSets": 3,
+            "targetReps": "10–12 reps",
+            "defaultRestSec": 75,
+            "category": "legs",
+            "met": 4.0,
+            "durationSecPerSet": 40,
+            "notes": "Strict form, avoid lower back arching."
+          },
+          {
+            "id": "custom-hip-thrust",
+            "name": "Glute Bridge or Hip Thrust Machine",
+            "targetSets": 3,
+            "targetReps": "12 reps",
+            "defaultRestSec": 75,
+            "category": "legs",
+            "met": 4.5,
+            "durationSecPerSet": 45,
+            "notes": "Drive through heels, squeeze glutes at top."
+          }
+        ]
+      },
+      "evening": {
+        "id": "custom-fri-evening",
+        "title": "Hamstring & Glute Flush",
+        "subtitle": "Post-workout recovery",
+        "location": "Home",
+        "durationEstimate": "15 min",
+        "exercises": [
+          {
+            "id": "custom-hamstring-stretch",
+            "name": "Supine Hamstring Stretch with Strap",
+            "targetSets": 2,
+            "targetReps": "35s hold per side",
+            "defaultRestSec": 30,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.3,
+            "durationSecPerSet": 35,
+            "notes": "Gentle stretch; opposite leg flat on mat."
+          }
+        ]
+      }
+    },
+    {
+      "dayId": "saturday",
+      "dayName": "Saturday",
+      "shortName": "Sat",
+      "morning": {
+        "id": "custom-sat-morning",
+        "title": "Full-Body Functional Circuit",
+        "subtitle": "Total-body stamina",
+        "location": "Gym",
+        "durationEstimate": "40–50 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "custom-suitcase-carry",
+            "name": "Suitcase Dumbbell Carry",
+            "targetSets": 3,
+            "targetReps": "30 seconds each side",
+            "defaultRestSec": 60,
+            "category": "core",
+            "isTimeBased": true,
+            "met": 4.5,
+            "durationSecPerSet": 30,
+            "notes": "Walk tall; zero side-leaning or pelvic tilting."
+          },
+          {
+            "id": "custom-pushup",
+            "name": "Incline or Standard Push-Up",
+            "targetSets": 3,
+            "targetReps": "10–12 reps",
+            "defaultRestSec": 60,
+            "category": "push",
+            "met": 4.0,
+            "durationSecPerSet": 35,
+            "notes": "Keep body in rigid straight line."
+          }
+        ]
+      },
+      "evening": {
+        "id": "custom-sat-evening",
+        "title": "Weekend Full-Body Relaxation",
+        "subtitle": "Passive relaxation",
+        "location": "Home",
+        "durationEstimate": "15 min",
+        "exercises": [
+          {
+            "id": "custom-legs-up-wall",
+            "name": "Legs-Up-The-Wall Rest",
+            "targetSets": 1,
+            "targetReps": "5 minutes passive hold",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 1.5,
+            "durationSecPerSet": 300,
+            "notes": "Venous blood flow and nervous system recovery."
+          }
+        ]
+      }
+    },
+    {
+      "dayId": "sunday",
+      "dayName": "Sunday",
+      "shortName": "Sun",
+      "morning": {
+        "id": "custom-sun-morning",
+        "title": "Rest & Outdoor Walk",
+        "subtitle": "Active recovery",
+        "location": "Home",
+        "durationEstimate": "30–45 min",
+        "exercises": [
+          {
+            "id": "custom-sun-walk",
+            "name": "Casual Nature Walk",
+            "targetSets": 1,
+            "targetReps": "30 minutes easy walking",
+            "defaultRestSec": 0,
+            "category": "cardio",
+            "isTimeBased": true,
+            "met": 3.3,
+            "durationSecPerSet": 1800,
+            "notes": "Promotes circulation and joint recovery."
+          }
+        ]
+      },
+      "evening": {
+        "id": "custom-sun-evening",
+        "title": "Weekly Reset & Deep Breathing",
+        "subtitle": "Preparation for new training week",
+        "location": "Home",
+        "durationEstimate": "15 min",
+        "exercises": [
+          {
+            "id": "custom-box-breathing",
+            "name": "Diaphragmatic Box Breathing",
+            "targetSets": 1,
+            "targetReps": "5 minutes (4s in, 4s hold, 4s out, 4s hold)",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 1.3,
+            "durationSecPerSet": 300,
+            "notes": "Calms the central nervous system."
+          }
+        ]
+      }
+    }
+  ]
+}
