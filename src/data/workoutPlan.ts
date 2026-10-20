@@ -2,50 +2,58 @@ import type { DayPlan, ProgressionPhase, WarmupItem, WorkoutPlan } from '../type
 
 export const MORNING_WARMUP_ROUTINE: WarmupItem[] = [
   {
-    id: 'warmup-bike',
-    name: 'Stationary bike',
-    target: '5 minutes, easy resistance',
-    durationSec: 300,
-    completed: false,
-    note: 'Gentle cadence, focus on smooth bilateral hip range without impingement'
-  },
-  {
     id: 'warmup-hip-flexor',
     name: 'Gentle hip-flexor stretch',
-    target: '2 × 20–30 seconds per side',
-    durationSec: 30,
+    target: '2 × 20 seconds per side',
+    durationSec: 40,
     completed: false,
+    met: 2.3,
     note: 'Tall spine, posterior pelvic tuck. Absolutely NO pinching in front of right hip!'
-  },
-  {
-    id: 'warmup-calf',
-    name: 'Standing calf stretch',
-    target: '2 × 20–30 seconds per side',
-    durationSec: 30,
-    completed: false,
-    note: 'Heel flat on ground, knee straight then slight bend'
   },
   {
     id: 'warmup-ql',
     name: 'Gentle QL / side-body stretch',
-    target: '2 × 20 seconds per side',
-    durationSec: 20,
+    target: '2 × 15–20 seconds per side',
+    durationSec: 35,
     completed: false,
-    note: 'No forced side-bending; gently lengthen lateral flank'
+    met: 2.3,
+    note: 'No forced side-bending; gently lengthen lateral flank.'
+  },
+  {
+    id: 'warmup-calf',
+    name: 'Standing calf stretch',
+    target: '2 × 20 seconds per side',
+    durationSec: 40,
+    completed: false,
+    met: 2.3,
+    note: 'Heel flat on ground, knee straight then slight bend.'
   },
   {
     id: 'warmup-pelvic-tilts',
-    name: 'Supported pelvic tilts',
-    target: '10 slow repetitions',
+    name: 'Supported pelvic tilts or shallow sit-to-stand',
+    target: '10 controlled repetitions',
+    durationSec: 45,
     completed: false,
-    note: 'Hold stable bar/counter. Feel anterior vs posterior control, keep pelvis level'
+    met: 2.8,
+    note: 'Hold stable bar/counter. Feel anterior vs posterior control, keep pelvis level.'
   },
   {
-    id: 'warmup-sit-to-stand',
-    name: 'Sit-to-stand or shallow squat rehearsal',
-    target: '1–2 × 8 reps',
+    id: 'warmup-treadmill',
+    name: 'Treadmill walking',
+    target: '10 min (Sat: 15 min, Sun: 10–15 min)',
+    durationSec: 600,
     completed: false,
-    note: 'Only if completely pain-free; focus on equal weight distribution'
+    met: 3.5,
+    note: 'Easy, flat walking; normal gait. Shorten or skip if fatigue or limping develops.'
+  },
+  {
+    id: 'warmup-elliptical',
+    name: 'Elliptical cardio',
+    target: '10 min (Sun: 5–10 min)',
+    durationSec: 600,
+    completed: false,
+    met: 5.0,
+    note: 'Low resistance, comfortable stride. Start easy for first 2 weeks.'
   }
 ];
 
@@ -893,21 +901,35 @@ export const WORKOUT_PLAN: DayPlan[] = [
     shortName: 'Sat',
     morning: {
       id: 'saturday-morning',
-      title: 'Full-Body Technique + Conditioning',
-      subtitle: 'Keep light: focus on movement quality rather than fatigue',
+      title: 'Light full-body technique + cardio',
+      subtitle: 'Technique focus, symmetrical loading, and controlled cardio',
       location: 'Gym',
       durationEstimate: '60–75 minutes',
-      hasWarmup: false,
+      hasWarmup: true,
       exercises: [
         {
-          id: 'sat-m-1',
-          name: 'Stationary bike',
+          id: 'sat-m-treadmill',
+          name: 'Treadmill walking',
           targetSets: 1,
-          targetReps: '10 minutes, easy',
+          targetReps: '15 minutes (Easy, flat walking; normal gait)',
+          defaultRestSec: 0,
+          category: 'cardio',
+          isTimeBased: true,
+          met: 3.5,
+          durationSecPerSet: 900,
+          notes: 'Easy, flat walking; normal gait.'
+        },
+        {
+          id: 'sat-m-elliptical',
+          name: 'Elliptical cardio',
+          targetSets: 1,
+          targetReps: '10 minutes (Low resistance, comfortable stride)',
           defaultRestSec: 60,
           category: 'cardio',
           isTimeBased: true,
-          notes: 'Smooth, relaxed cycling.'
+          met: 5.0,
+          durationSecPerSet: 600,
+          notes: 'Low resistance, comfortable stride.'
         },
         {
           id: 'sat-m-2',
@@ -917,6 +939,8 @@ export const WORKOUT_PLAN: DayPlan[] = [
           defaultRestSec: 75,
           category: 'legs',
           rightHipFocus: true,
+          met: 3.5,
+          durationSecPerSet: 40,
           notes: 'Stand up using both legs evenly. Control down.'
         },
         {
@@ -927,6 +951,8 @@ export const WORKOUT_PLAN: DayPlan[] = [
           defaultRestSec: 75,
           category: 'legs',
           rightHipFocus: true,
+          met: 4.0,
+          durationSecPerSet: 45,
           notes: 'Technique drill: zero hip hike, level pelvis.'
         },
         {
@@ -936,6 +962,8 @@ export const WORKOUT_PLAN: DayPlan[] = [
           targetReps: '12 reps',
           defaultRestSec: 60,
           category: 'pull',
+          met: 4.0,
+          durationSecPerSet: 40,
           notes: 'Light weight, flawless mechanics.'
         },
         {
@@ -945,6 +973,8 @@ export const WORKOUT_PLAN: DayPlan[] = [
           targetReps: '12 reps',
           defaultRestSec: 60,
           category: 'push',
+          met: 4.0,
+          durationSecPerSet: 40,
           notes: 'Light weight, steady cadence.'
         },
         {
@@ -955,6 +985,8 @@ export const WORKOUT_PLAN: DayPlan[] = [
           defaultRestSec: 60,
           category: 'hip-rehab',
           rightHipFocus: true,
+          met: 3.5,
+          durationSecPerSet: 40,
           notes: 'Bodyweight or very light band.'
         },
         {
@@ -964,13 +996,15 @@ export const WORKOUT_PLAN: DayPlan[] = [
           targetReps: '10 each side',
           defaultRestSec: 60,
           category: 'core',
+          met: 3.8,
+          durationSecPerSet: 35,
           notes: 'Anti-rotation core brace.'
         }
       ]
     },
     evening: {
       id: 'saturday-evening',
-      title: 'Light Mobility',
+      title: 'Gentle mobility',
       subtitle: 'Gentle resetting and active recovery',
       location: 'Home',
       durationEstimate: '30–45 minutes',
@@ -983,6 +1017,8 @@ export const WORKOUT_PLAN: DayPlan[] = [
           defaultRestSec: 30,
           category: 'mobility',
           isTimeBased: true,
+          met: 2.3,
+          durationSecPerSet: 600,
           notes: 'General gentle full-body and hip stretching.'
         },
         {
@@ -993,6 +1029,8 @@ export const WORKOUT_PLAN: DayPlan[] = [
           defaultRestSec: 45,
           category: 'mobility',
           rightHipFocus: true,
+          met: 2.5,
+          durationSecPerSet: 30,
           notes: 'Keep knee tracking in line with hip.'
         },
         {
@@ -1002,6 +1040,8 @@ export const WORKOUT_PLAN: DayPlan[] = [
           targetReps: '12 reps',
           defaultRestSec: 45,
           category: 'core',
+          met: 2.8,
+          durationSecPerSet: 40,
           notes: 'Gentle coordination of anterior and posterior tilt.'
         },
         {
@@ -1011,6 +1051,8 @@ export const WORKOUT_PLAN: DayPlan[] = [
           targetReps: '12 reps',
           defaultRestSec: 60,
           category: 'hip-rehab',
+          met: 3.5,
+          durationSecPerSet: 35,
           notes: 'Lightest band, feeling glute turn on.'
         },
         {
@@ -1021,6 +1063,8 @@ export const WORKOUT_PLAN: DayPlan[] = [
           defaultRestSec: 60,
           category: 'cardio',
           isTimeBased: true,
+          met: 3.3,
+          durationSecPerSet: 900,
           notes: 'Flat surface, comfortable walking stride.'
         }
       ]
@@ -1034,40 +1078,44 @@ export const WORKOUT_PLAN: DayPlan[] = [
     shortName: 'Sun',
     morning: {
       id: 'sunday-morning',
-      title: 'Recovery / Easy Cardio',
-      subtitle: 'Restorative movement, no heavy leg training or forced rotation',
+      title: 'Recovery cardio only',
+      subtitle: 'Treadmill 10–15 min + Elliptical 5–10 min; easy joint recovery',
       location: 'Gym',
-      durationEstimate: '30–45 minutes',
-      hasWarmup: false,
+      durationEstimate: '20–30 minutes',
+      hasWarmup: true,
       exercises: [
         {
-          id: 'sun-m-1',
-          name: 'Easy walk or stationary bike',
+          id: 'sun-m-treadmill',
+          name: 'Treadmill easy walk',
           targetSets: 1,
-          targetReps: '15–20 minutes, easy',
-          defaultRestSec: 60,
+          targetReps: '10–15 minutes, flat & easy',
+          defaultRestSec: 0,
           category: 'cardio',
           isTimeBased: true,
-          notes: 'Gentle joint nutrition. Zero breathless fatigue.'
+          met: 3.5,
+          durationSecPerSet: 720,
+          notes: 'Easy, flat walking; normal gait. Focus on joint lubrication.'
         },
         {
-          id: 'sun-m-2',
-          name: 'Gentle hip-flexor, calf and side-body stretch',
-          targetSets: 2,
-          targetReps: '10–15 min total',
-          defaultRestSec: 30,
-          category: 'mobility',
+          id: 'sun-m-elliptical',
+          name: 'Elliptical easy glide',
+          targetSets: 1,
+          targetReps: '5–10 minutes, low resistance',
+          defaultRestSec: 0,
+          category: 'cardio',
           isTimeBased: true,
-          notes: 'Relaxed breathing. Do not force any range.'
+          met: 4.5,
+          durationSecPerSet: 450,
+          notes: 'Low resistance, comfortable stride without breathlessness.'
         }
       ]
     },
     evening: {
       id: 'sunday-evening',
-      title: 'Recovery Only',
+      title: 'Gentle stretching',
       subtitle: 'Gentle stretching only. No ankle weights or hard core drills.',
       location: 'Home',
-      durationEstimate: '20–30 minutes',
+      durationEstimate: '15–20 minutes',
       exercises: [
         {
           id: 'sun-e-1',
@@ -1077,17 +1125,21 @@ export const WORKOUT_PLAN: DayPlan[] = [
           defaultRestSec: 30,
           category: 'mobility',
           isTimeBased: true,
-          notes: 'Gentle relaxation before sleep.'
+          met: 2.3,
+          durationSecPerSet: 300,
+          notes: 'Gentle relaxation before sleep. Never push through pinching.'
         },
         {
           id: 'sun-e-2',
-          name: 'Easy walking (if comfortable)',
-          targetSets: 1,
-          targetReps: '10–15 min',
+          name: 'Gentle calf and hamstring stretch',
+          targetSets: 2,
+          targetReps: '2 × 20s hold',
           defaultRestSec: 30,
-          category: 'cardio',
+          category: 'mobility',
           isTimeBased: true,
-          notes: 'Enjoyable stroll. If hip feels fatigued, rest completely instead.'
+          met: 2.3,
+          durationSecPerSet: 40,
+          notes: 'Relaxed breathing. Do not force any range.'
         }
       ]
     }
@@ -1097,74 +1149,162 @@ export const WORKOUT_PLAN: DayPlan[] = [
 export const PROGRESSION_PHASES: ProgressionPhase[] = [
   {
     weeks: 'Weeks 1–2',
-    title: 'Establish Control',
-    goal: 'Master machine mechanics and observe right-left asymmetries',
+    title: 'Establish your baseline (Phase 1)',
+    goal: 'Master mechanics, find comfortable depths, and establish baseline without overload',
     recommendations: [
-      'Learn gym machine paths and safe stoppers',
-      'Use conservative loads with 3–4 Repetitions In Reserve (RIR)',
-      'Prioritize smooth repetitions, level pelvis, and completely pain-free movement',
-      'Track any right-left discrepancy in force output or fatigue'
+      'Use the lower end of the repetition ranges.',
+      'Keep 3–4 good repetitions in reserve (RIR).',
+      'Learn the comfortable depth for leg press and the machines.',
+      'Prioritize pelvic control and symmetrical movement.',
+      'Don’t use ankle weights on the operated leg yet.'
     ]
   },
   {
     weeks: 'Weeks 3–4',
-    title: 'Build Strength',
-    goal: 'Gradually progress load while confirming comfort 24 hours later',
+    title: 'Build consistency (Phase 2)',
+    goal: 'Progress reps first before load; maintain 24-hr comfort',
     recommendations: [
-      'If your hip remains comfortable during exercise and the following day, gradually increase reps or weight',
-      'Progress only ONE variable at a time (reps OR weight, never both)',
-      'Keep anterior pinch rating at 0 (pain-free)',
-      'Do not increase range of motion and weight simultaneously'
+      'Increase repetitions before increasing resistance.',
+      'Once all sets are controlled and symptom-free, make a small weight increase.',
+      'Keep evening leg work light.',
+      'Review your remaining anterior hip pinch before progressing hip range.'
     ]
   },
   {
     weeks: 'Weeks 5–8',
-    title: 'Progress Functional Strength',
-    goal: 'Advance single-leg loading with physiotherapist clearance',
+    title: 'Progressive strength (Phase 3)',
+    goal: 'Advance machine and band loading systematically without simultaneous range expansion',
     recommendations: [
-      'Assess readiness for greater leg-press loads with your physiotherapist',
-      'Introduce slightly higher step-ups if pelvic tilt remains controlled',
-      'Add more demanding single-leg work and progressive trunk-stability exercises',
-      'Begin testing functional daily patterns with balanced hip drive'
+      'Progress machine loads gradually.',
+      'Increase band resistance where appropriate.',
+      'Consider more challenging step-ups or unilateral exercises only after assessment.',
+      'Do not increase load and range simultaneously.'
     ]
   },
   {
     weeks: 'Weeks 9–12',
-    title: 'Reassess and Refine',
-    goal: 'Evaluate symmetry, gait mechanics, and mobility progression',
+    title: 'Reassess and refine (Phase 4)',
+    goal: 'Evaluate symmetry, gait mechanics, and mobility progression with physiotherapist',
     recommendations: [
-      'Compare right and left strength symmetry on machines and step-ups',
-      'Review walking gait and pelvis leveling with physiotherapist',
-      'Progress toward your long-term athletic goals based on measured ability, not calendar alone',
-      'Refine evening mobility based on updated pelvic and QL assessments'
+      'Continue gradual strength progression.',
+      'Reassess right-leg strength, pelvic control and walking mechanics.',
+      'Progress functional exercises according to your physiotherapist’s findings.',
+      'Review hip rotation and cross-legged sitting tolerance without forcing either.'
     ]
+  }
+];
+
+export const DAILY_CARDIO_SCHEDULE = [
+  { dayName: 'Monday', treadmill: '10 min', elliptical: '10 min', notes: 'Easy, flat walking; low resistance stride.' },
+  { dayName: 'Tuesday', treadmill: '10 min', elliptical: '10 min', notes: 'Normal gait; comfortable cadence.' },
+  { dayName: 'Wednesday', treadmill: '10 min', elliptical: '10 min', notes: 'Recovery pace; joint lubrication.' },
+  { dayName: 'Thursday', treadmill: '10 min', elliptical: '10 min', notes: 'Flat surface; comfortable stride.' },
+  { dayName: 'Friday', treadmill: '10 min', elliptical: '10 min', notes: 'Steady state; smooth rhythm.' },
+  { dayName: 'Saturday', treadmill: '15 min', elliptical: '10 min', notes: 'Slightly longer walk; easy elliptical.' },
+  { dayName: 'Sunday', treadmill: '10–15 min', elliptical: '5–10 min', notes: 'Deliberately easier recovery session.' }
+];
+
+export const RIGHT_LEG_QL_RULES = [
+  {
+    title: 'Start with the right side first',
+    description: 'Start with the right side on suitable unilateral exercises if your physiotherapist has cleared them.'
+  },
+  {
+    title: 'Match range and repetitions symmetrically',
+    description: 'Match the range and repetitions on both sides initially. Do not do extra fatigued sets on the operated leg.'
+  },
+  {
+    title: 'Zero trunk compensation or pelvic hiking',
+    description: 'Don’t compensate by leaning your trunk or hiking your pelvis. Keep shoulders and pelvis level.'
+  },
+  {
+    title: 'Objective logging',
+    description: 'Record loads and repetitions so you can track improvements objectively.'
+  },
+  {
+    title: 'Gentle stretching alone won’t fix pelvic tilt',
+    description: 'Stretch the hip flexors and QL gently; stretching alone won’t necessarily correct a lateral pelvic tilt. Train both trunk strength and hip stability.'
+  },
+  {
+    title: 'Physiotherapist assessment',
+    description: 'Have your physiotherapist assess pelvic alignment, gait, hip strength and possible leg-length differences rather than assuming the QL is the sole cause.'
   }
 ];
 
 export const THR_SAFETY_RULES = [
   {
-    title: 'Do not train right leg to exhaustion',
-    description: 'Give the right leg priority through careful exercise selection and precision technique, never by forcing extra sets after form deteriorates or when limping begins.'
-  },
-  {
     title: 'Respect the anterior hip pinch',
-    description: 'Never push through a sharp pinch at the front of the hip during bending, squatting, or leg press. Reduce range of motion to stay strictly pain-free.'
+    description: 'Because you still occasionally experience a sharp pinch at the front of the hip: never push through a sharp pinch at the front of the hip during bending, squatting, or leg press. Reduce range of motion to stay strictly pain-free.'
   },
   {
-    title: 'No forced cross-legged or figure-four positions',
-    description: 'Limited rotation and anterior pinch deserve clinical clearance. Never force rotation by pushing your right knee down.'
+    title: 'Avoid forced figure-four & deep squats',
+    description: 'Avoid forcing figure-four stretches, deep squats, and aggressive hip rotation. Limited rotation deserves clinical clearance.'
   },
   {
-    title: 'Do not assume stretching fixes pelvic tilt',
-    description: 'Pelvic tilt can stem from hip strength imbalance, movement habits, or leg-length differences. Train both trunk strength and hip stability.'
+    title: 'Controlled leg press depth',
+    description: 'Keep the leg press in a comfortable range without your pelvis rolling backward or tucking under.'
+  },
+  {
+    title: 'Stop sharp pain immediately',
+    description: 'Stop any exercise that produces sharp pain. Do not train through joint discomfort.'
   },
   {
     title: 'The 24-Hour Rule',
-    description: 'Always monitor the next 24 hours. If pain, pinching, stiffness, or limping worsens, reduce load or range for the next session.'
+    description: 'If the pinch persists, worsens, or starts occurring during ordinary walking, arrange a clinical review before progressing the affected exercises.'
   },
   {
-    title: 'When to Stop Immediately',
-    description: 'Stop for sharp hip pain, a new limp, sudden loss of function, or feeling of instability. Seek clinical assessment if severe.'
+    title: 'Seek urgent clinical review',
+    description: 'Seek urgent assessment for sudden severe hip pain or inability to bear weight.'
+  }
+];
+
+export interface WeeklyProgressQuestion {
+  id: string;
+  category: string;
+  prompt: string;
+  options: { label: string; score: 'good' | 'neutral' | 'caution' }[];
+}
+
+export const WEEKLY_PROGRESS_QUESTIONS: WeeklyProgressQuestion[] = [
+  {
+    id: 'pinch',
+    category: 'Anterior hip pinch',
+    prompt: 'How was the anterior hip pinch during this week’s training?',
+    options: [
+      { label: 'Less frequent or less intense', score: 'good' },
+      { label: 'Unchanged', score: 'neutral' },
+      { label: 'More frequent or more intense', score: 'caution' }
+    ]
+  },
+  {
+    id: 'stiffness',
+    category: 'Morning stiffness',
+    prompt: 'How is your morning hip stiffness upon waking?',
+    options: [
+      { label: 'Improving', score: 'good' },
+      { label: 'Unchanged', score: 'neutral' },
+      { label: 'Worsening', score: 'caution' }
+    ]
+  },
+  {
+    id: 'pelvis',
+    category: 'Pelvic control',
+    prompt: 'How did your pelvis and squat/step-up symmetry feel?',
+    options: [
+      { label: 'Squats and step-ups look more symmetrical', score: 'good' },
+      { label: 'Unchanged', score: 'neutral' },
+      { label: 'More shifting or compensation', score: 'caution' }
+    ]
+  },
+  {
+    id: 'recovery',
+    category: 'Next-day recovery',
+    prompt: 'How did your hip feel the day after workouts (24-hr response)?',
+    options: [
+      { label: 'Back to baseline by the next day', score: 'good' },
+      { label: 'Mildly more stiff the next day', score: 'neutral' },
+      { label: 'Pain, limping or worsening symptoms', score: 'caution' }
+    ]
   }
 ];
 
