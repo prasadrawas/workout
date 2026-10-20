@@ -1,35 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a" />
-      <stop offset="50%" stop-color="#0b0f19" />
+      <stop offset="0%" stop-color="#0b111e" />
+      <stop offset="50%" stop-color="#070a12" />
       <stop offset="100%" stop-color="#022c22" />
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="gymGlow" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#10b981" />
       <stop offset="50%" stop-color="#06b6d4" />
       <stop offset="100%" stop-color="#3b82f6" />
     </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="16" result="blur" />
+    <filter id="neon" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
-  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
-  <rect width="512" height="512" rx="112" stroke="rgba(16, 185, 129, 0.25)" stroke-width="4" />
-  
-  <!-- Stylized Shield & Strength Kinetic Lines -->
-  <g transform="translate(106, 106)" filter="url(#glow)">
-    <!-- Dumbbell / Pelvic stability geometric emblem -->
-    <path d="M150 40 L190 40 C210 40 220 50 220 70 L220 230 C220 250 210 260 190 260 L150 260 C130 260 120 250 120 230 L120 70 C120 50 130 40 150 40 Z" fill="url(#accentGrad)" opacity="0.15" />
+
+  <!-- Background App Tile -->
+  <rect width="512" height="512" rx="120" fill="url(#bgGrad)" />
+  <rect width="512" height="512" rx="120" stroke="rgba(16, 185, 129, 0.25)" stroke-width="4" />
+
+  <!-- Iconic Athletic Dumbbell Workout Logo -->
+  <g transform="translate(256, 256) rotate(-45) translate(-256, -256)" filter="url(#neon)">
+    <!-- Dumbbell Central Bar -->
+    <rect x="190" y="238" width="132" height="36" rx="8" fill="url(#gymGlow)" />
     
-    <!-- Central Shield & Spine / Pelvic symmetry icon -->
-    <path d="M150 20 L240 60 C240 170 180 235 150 260 C120 235 60 170 60 60 Z" 
-          stroke="url(#accentGrad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
-    
-    <!-- Kinetic Energy Bolt & Checkmark Balance -->
-    <path d="M130 140 L150 165 L200 105" 
-          stroke="#ffffff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
-    <circle cx="150" cy="205" r="14" fill="#10b981" />
+    <!-- Grip Knurling Lines -->
+    <line x1="236" y1="238" x2="236" y2="274" stroke="#ffffff" stroke-width="3" opacity="0.6" />
+    <line x1="256" y1="238" x2="256" y2="274" stroke="#ffffff" stroke-width="3" opacity="0.6" />
+    <line x1="276" y1="238" x2="276" y2="274" stroke="#ffffff" stroke-width="3" opacity="0.6" />
+
+    <!-- Left Inner Weight Plate Collar -->
+    <rect x="170" y="212" width="22" height="88" rx="8" fill="#10b981" />
+    <!-- Left Inner Big Plate -->
+    <rect x="132" y="172" width="34" height="168" rx="14" fill="url(#gymGlow)" />
+    <!-- Left Outer Plate -->
+    <rect x="94" y="196" width="34" height="120" rx="12" fill="url(#gymGlow)" opacity="0.9" />
+
+    <!-- Right Inner Weight Plate Collar -->
+    <rect x="320" y="212" width="22" height="88" rx="8" fill="#06b6d4" />
+    <!-- Right Inner Big Plate -->
+    <rect x="346" y="172" width="34" height="168" rx="14" fill="url(#gymGlow)" />
+    <!-- Right Outer Plate -->
+    <rect x="384" y="196" width="34" height="120" rx="12" fill="url(#gymGlow)" opacity="0.9" />
+
+    <!-- Center Pulse Flare -->
+    <circle cx="256" cy="256" r="10" fill="#ffffff" />
   </g>
 </svg>

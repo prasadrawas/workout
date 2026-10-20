@@ -1,5 +1,5 @@
 import { useState, type FC } from 'react';
-import { Volume2, VolumeX, ShieldAlert, History, Calendar, Scale, X, Check } from 'lucide-react';
+import { Volume2, VolumeX, ShieldAlert, History, Calendar, Scale, X, Check, Dumbbell } from 'lucide-react';
 import { getTodayDayOfWeek } from '../utils/storage';
 import type { DayOfWeek } from '../types/workout';
 
@@ -55,11 +55,8 @@ export const Navbar: FC<NavbarProps> = ({
       <header className="navbar">
         <div className="navbar-inner">
           <div className="brand" onClick={() => onSelectDay(today)}>
-            <div className="brand-icon-wrap">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                <path d="m9 12 2 2 4-4" />
-              </svg>
+            <div className="brand-icon-wrap" title="Workout">
+              <Dumbbell size={22} strokeWidth={2.4} />
             </div>
             <div>
               <span className="brand-title">Workout</span>
