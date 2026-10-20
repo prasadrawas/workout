@@ -1,4 +1,4 @@
-# HipStrong · 2-Session THR Workout & Rehab Tracker
+# Workout "By Prasad Rawas"
 
 A progressive, mobile-first Progressive Web App (PWA) built specifically for tracking a **7-day dual-session** (Morning Gym Strength + Evening Home Rehab/Mobility) training program following a **Right Total Hip Replacement (THR)**.
 

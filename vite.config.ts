@@ -11,9 +11,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'apple-touch-icon.png', 'pwa-192.png', 'pwa-512.png'],
       manifest: {
-        name: 'HipStrong - THR Workout & Rehab Tracker',
-        short_name: 'HipStrong',
-        description: '7-day dual-session workout & hip rehabilitation tracker for Total Hip Replacement recovery',
+        name: 'Workout "By Prasad Rawas"',
+        short_name: 'Workout',
+        description: 'Workout "By Prasad Rawas" - 7-day dual-session workout and hip rehabilitation tracker',
         theme_color: '#0b0f19',
         background_color: '#0b0f19',
         display: 'standalone',

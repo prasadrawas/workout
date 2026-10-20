@@ -62,8 +62,8 @@ export const Navbar: FC<NavbarProps> = ({
               </svg>
             </div>
             <div>
-              <span className="brand-title">HipStrong</span>
-              <span className="brand-subtitle">THR 2-Session Tracker</span>
+              <span className="brand-title">Workout</span>
+              <span className="brand-subtitle">By Prasad Rawas</span>
             </div>
           </div>
 
