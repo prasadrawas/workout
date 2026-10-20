@@ -1,4 +1,4 @@
-name: Deploy HipStrong to GitHub Pages
+name: Deploy Workout to GitHub Pages
 
 on:
   push:
