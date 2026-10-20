@@ -254,11 +254,16 @@ export const HistoryModal: FC<HistoryModalProps> = ({
                 }}
               >
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
                     <CheckCircle2 size={15} color="var(--primary-light)" />
                     <span style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--text-white)' }}>
                       {entry.dayName} · {entry.sessionTitle}
                     </span>
+                    {entry.planName && (
+                      <span className="badge-tag" style={{ fontSize: '0.68rem', padding: '1px 6px' }}>
+                        {entry.planName}
+                      </span>
+                    )}
                   </div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: 2, display: 'flex', alignItems: 'center', gap: 8 }}>
                     <span>{entry.date}</span>

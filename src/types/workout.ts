@@ -68,16 +68,28 @@ export interface SessionProgress {
   warmupCompleted?: Record<string, boolean>; // warmupItemId -> boolean
 }
 
+export interface WorkoutPlan {
+  id: string;
+  name: string;
+  description?: string;
+  focusTag?: string;
+  isCustom?: boolean;
+  days: DayPlan[];
+}
+
 export interface WeekProgress {
   weekId: string; // e.g. "2026-W43"
+  activePlanId?: string;
   unit: 'kg' | 'lbs';
   userWeightKg: number; // For accurate calorie expenditure calculation
   soundEnabled: boolean;
-  sessions: Record<string, SessionProgress>; // "monday-morning" -> SessionProgress
+  sessions: Record<string, SessionProgress>; // sessionId -> SessionProgress
 }
 
 export interface HistoryEntry {
   id: string;
+  planId?: string;
+  planName?: string;
   date: string;
   dayName: string;
   sessionTitle: string;

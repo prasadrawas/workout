@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react';
-import { WORKOUT_PLAN } from './data/workoutPlan';
-import type { DayOfWeek, HistoryEntry, SessionType, SetLog, WeekProgress } from './types/workout';
+import { DEFAULT_THR_PLAN } from './data/workoutPlan';
+import type { DayOfWeek, HistoryEntry, SessionType, SetLog, WeekProgress, WorkoutPlan } from './types/workout';
 import {
   addHistoryEntry,
+  ensurePlanSessions,
+  getActivePlanId,
   getTodayDayOfWeek,
   loadHistory,
   loadWeekProgress,
+  loadWorkoutPlans,
   resetCurrentWeek,
-  saveWeekProgress
+  saveActivePlanId,
+  saveWeekProgress,
+  saveWorkoutPlans
 } from './utils/storage';
 import { playCountdownTick, playRestCompleteChime } from './utils/audio';
 import { calculateSessionCalories } from './utils/calories';
@@ -21,6 +26,7 @@ import { RestTimerModal } from './components/RestTimerModal';
 import { HipSafetyDrawer } from './components/HipSafetyDrawer';
 import { HistoryModal } from './components/HistoryModal';
 import { SessionSummaryCard } from './components/SessionSummaryCard';
+import { PlanManagerModal } from './components/PlanManagerModal';
 import { MapPin, Clock, Sparkles, Flame } from 'lucide-react';
 
 export function App() {
@@ -32,7 +38,15 @@ export function App() {
     return hour >= 17 ? 'evening' : 'morning';
   });
 
-  const [progress, setProgress] = useState<WeekProgress>(() => loadWeekProgress());
+  // Workout Plans Management
+  const [plans, setPlans] = useState<WorkoutPlan[]>(() => loadWorkoutPlans());
+  const [activePlanId, setActivePlanId] = useState<string>(() => getActivePlanId());
+  const [planManagerOpen, setPlanManagerOpen] = useState(false);
+
+  // Active Plan Resolution
+  const activePlan = plans.find((p) => p.id === activePlanId) || plans[0] || DEFAULT_THR_PLAN;
+
+  const [progress, setProgress] = useState<WeekProgress>(() => loadWeekProgress(activePlan));
   const [history, setHistory] = useState<HistoryEntry[]>(() => loadHistory());
 
   // Rest Timer State
@@ -74,13 +88,33 @@ export function App() {
     };
   }, [timerRunning, timeLeft, progress.soundEnabled]);
 
-  // Selected Day Plan
-  const selectedDayPlan = WORKOUT_PLAN.find((d) => d.dayId === currentDay) || WORKOUT_PLAN[0];
-  const activeSessionPlan = currentSession === 'morning' ? selectedDayPlan.morning : selectedDayPlan.evening;
+  // Handle Switching Active Plan
+  const handleSelectPlan = (newPlanId: string) => {
+    const nextPlan = plans.find((p) => p.id === newPlanId);
+    if (nextPlan) {
+      setActivePlanId(newPlanId);
+      saveActivePlanId(newPlanId);
+      setProgress((prev) => ensurePlanSessions(prev, nextPlan));
+    }
+  };
+
+  // Handle Saving Updated Plans list
+  const handleSavePlans = (updatedPlans: WorkoutPlan[]) => {
+    setPlans(updatedPlans);
+    saveWorkoutPlans(updatedPlans);
+    const currentStillExists = updatedPlans.some((p) => p.id === activePlanId);
+    if (!currentStillExists && updatedPlans.length > 0) {
+      handleSelectPlan(updatedPlans[0].id);
+    }
+  };
+
+  // Selected Day Plan from Active Plan
+  const selectedDayPlan = activePlan.days.find((d) => d.dayId === currentDay) || activePlan.days[0];
+  const activeSessionPlan = (currentSession === 'morning' ? selectedDayPlan?.morning : selectedDayPlan?.evening) || selectedDayPlan?.morning;
 
   // Active Session Progress
-  const sessionProgress = progress.sessions[activeSessionPlan.id] || {
-    sessionId: activeSessionPlan.id,
+  const sessionProgress = (activeSessionPlan && progress.sessions[activeSessionPlan.id]) || {
+    sessionId: activeSessionPlan?.id || 'default-session',
     completed: false,
     sets: {},
     warmupCompleted: {},
@@ -92,23 +126,28 @@ export function App() {
   // Calculate Progress %
   let totalSets = 0;
   let completedSets = 0;
-  activeSessionPlan.exercises.forEach((ex) => {
-    totalSets += ex.targetSets;
-    const sets = sessionProgress.sets?.[ex.id] || [];
-    completedSets += sets.filter((s) => s.completed).length;
-  });
+  if (activeSessionPlan?.exercises) {
+    activeSessionPlan.exercises.forEach((ex) => {
+      totalSets += ex.targetSets;
+      const sets = sessionProgress.sets?.[ex.id] || [];
+      completedSets += sets.filter((s) => s.completed).length;
+    });
+  }
 
   const progressPercent = totalSets > 0 ? Math.round((completedSets / totalSets) * 100) : 0;
 
   // Calculate Session Calories using Compendium MET formula
-  const sessionCalories = calculateSessionCalories(
-    activeSessionPlan,
-    sessionProgress,
-    progress.userWeightKg || 75
-  );
+  const sessionCalories = activeSessionPlan
+    ? calculateSessionCalories(
+        activeSessionPlan,
+        sessionProgress,
+        progress.userWeightKg || 75
+      )
+    : { burnedKcal: 0, totalKcal: 0 };
 
   // Handlers for Sets
   const handleUpdateSet = (exerciseId: string, setIndex: number, updated: Partial<SetLog>) => {
+    if (!activeSessionPlan) return;
     setProgress((prev) => {
       const currentSessionData = prev.sessions[activeSessionPlan.id] || {
         sessionId: activeSessionPlan.id,
@@ -141,6 +180,7 @@ export function App() {
 
   // Handlers for Warmup items
   const handleToggleWarmupItem = (itemId: string) => {
+    if (!activeSessionPlan) return;
     setProgress((prev) => {
       const currentSessionData = prev.sessions[activeSessionPlan.id] || {
         sessionId: activeSessionPlan.id,
@@ -168,6 +208,7 @@ export function App() {
 
   // Complete Session
   const handleCompleteSession = (painScore: number, pinchReported: boolean, notes: string, caloriesBurned: number) => {
+    if (!activeSessionPlan) return;
     setProgress((prev) => {
       const currentSessionData = prev.sessions[activeSessionPlan.id];
       return {
@@ -187,11 +228,13 @@ export function App() {
       };
     });
 
-    // Record into history
+    // Record into history with plan tags
     const newEntry: HistoryEntry = {
       id: `${activeSessionPlan.id}-${Date.now()}`,
+      planId: activePlan.id,
+      planName: activePlan.name,
       date: new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }),
-      dayName: selectedDayPlan.dayName,
+      dayName: selectedDayPlan?.dayName || 'Day',
       sessionTitle: activeSessionPlan.title,
       sessionType: currentSession,
       completedSetsCount: completedSets,
@@ -206,6 +249,7 @@ export function App() {
   };
 
   const handleUncompleteSession = () => {
+    if (!activeSessionPlan) return;
     setProgress((prev) => {
       const currentSessionData = prev.sessions[activeSessionPlan.id];
       return {
@@ -256,7 +300,7 @@ export function App() {
 
   // Reset current week
   const handleResetWeek = () => {
-    const fresh = resetCurrentWeek();
+    const fresh = resetCurrentWeek(activePlan);
     setProgress(fresh);
   };
 
@@ -273,6 +317,8 @@ export function App() {
         onOpenHistory={() => setHistoryModalOpen(true)}
         currentDay={currentDay}
         onSelectDay={setCurrentDay}
+        activePlanName={activePlan.name}
+        onOpenPlanManager={() => setPlanManagerOpen(true)}
       />
 
       <main className="app-container">
@@ -284,53 +330,57 @@ export function App() {
         />
 
         {/* Morning vs Evening Switch */}
-        <SessionToggle
-          currentSession={currentSession}
-          onSelectSession={setCurrentSession}
-          morningCompleted={progress.sessions[selectedDayPlan.morning.id]?.completed}
-          eveningCompleted={progress.sessions[selectedDayPlan.evening.id]?.completed}
-        />
+        {selectedDayPlan && (
+          <SessionToggle
+            currentSession={currentSession}
+            onSelectSession={setCurrentSession}
+            morningCompleted={progress.sessions[selectedDayPlan.morning?.id]?.completed}
+            eveningCompleted={progress.sessions[selectedDayPlan.evening?.id]?.completed}
+          />
+        )}
 
         {/* Session Header Banner */}
-        <div className="glass-panel session-banner">
-          <div className="banner-meta">
-            <span className={`badge ${currentSession === 'morning' ? 'badge-gym' : 'badge-home'}`}>
-              <MapPin size={12} />
-              {activeSessionPlan.location}
-            </span>
-            <span className="badge badge-duration">
-              <Clock size={12} />
-              {activeSessionPlan.durationEstimate}
-            </span>
-            <span className="badge badge-calories" title="Compendium formula: (MET × 3.5 × weight) / 200 × time">
-              <Flame size={12} />
-              {sessionCalories.burnedKcal} / {sessionCalories.totalKcal} kcal
-            </span>
-            {sessionProgress.completed && (
-              <span className="badge badge-completed">
-                <Sparkles size={12} /> Completed
+        {activeSessionPlan && (
+          <div className="glass-panel session-banner">
+            <div className="banner-meta">
+              <span className={`badge ${currentSession === 'morning' ? 'badge-gym' : 'badge-home'}`}>
+                <MapPin size={12} />
+                {activeSessionPlan.location}
               </span>
-            )}
-          </div>
-
-          <h2 className="banner-title font-display">{activeSessionPlan.title}</h2>
-          <p className="banner-subtitle">{activeSessionPlan.subtitle}</p>
-
-          <div className="banner-progress-row">
-            <div className="progress-bar-wrap">
-              <div
-                className="progress-bar-fill"
-                style={{ width: `${progressPercent}%` }}
-              />
+              <span className="badge badge-duration">
+                <Clock size={12} />
+                {activeSessionPlan.durationEstimate}
+              </span>
+              <span className="badge badge-calories" title="Compendium formula: (MET × 3.5 × weight) / 200 × time">
+                <Flame size={12} />
+                {sessionCalories.burnedKcal} / {sessionCalories.totalKcal} kcal
+              </span>
+              {sessionProgress.completed && (
+                <span className="badge badge-completed">
+                  <Sparkles size={12} /> Completed
+                </span>
+              )}
             </div>
-            <span className="progress-text">
-              {completedSets} of {totalSets} sets ({progressPercent}%)
-            </span>
+
+            <h2 className="banner-title font-display">{activeSessionPlan.title}</h2>
+            <p className="banner-subtitle">{activeSessionPlan.subtitle}</p>
+
+            <div className="banner-progress-row">
+              <div className="progress-bar-wrap">
+                <div
+                  className="progress-bar-fill"
+                  style={{ width: `${progressPercent}%` }}
+                />
+              </div>
+              <span className="progress-text">
+                {completedSets} of {totalSets} sets ({progressPercent}%)
+              </span>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Morning Gym Warmup Checklist (shown on morning sessions with warmups) */}
-        {currentSession === 'morning' && activeSessionPlan.hasWarmup && (
+        {currentSession === 'morning' && activeSessionPlan?.hasWarmup && (
           <GymWarmupCard
             completedMap={sessionProgress.warmupCompleted || {}}
             onToggleItem={handleToggleWarmupItem}
@@ -341,41 +391,58 @@ export function App() {
         )}
 
         {/* Exercises List */}
-        <div className="exercises-list">
-          {activeSessionPlan.exercises.map((exercise) => {
-            const exerciseSets = sessionProgress.sets?.[exercise.id] || Array.from({ length: exercise.targetSets }, (_, i) => ({
-              setNumber: i + 1,
-              targetReps: exercise.targetReps,
-              weight: '',
-              reps: '',
-              completed: false,
-              pinchStatus: 'none' as const
-            }));
+        {activeSessionPlan && (
+          <div className="exercises-list">
+            {activeSessionPlan.exercises.length === 0 ? (
+              <div className="empty-exercises-notice" style={{ textAlign: 'center', padding: '30px 16px' }}>
+                <p style={{ color: 'var(--text-secondary)', marginBottom: 12 }}>No exercises planned for this session yet.</p>
+                <button 
+                  className="btn-tool-action primary" 
+                  style={{ margin: '0 auto' }}
+                  onClick={() => setPlanManagerOpen(true)}
+                >
+                  Edit Routine in Plan Manager
+                </button>
+              </div>
+            ) : (
+              activeSessionPlan.exercises.map((exercise) => {
+                const exerciseSets = sessionProgress.sets?.[exercise.id] || Array.from({ length: exercise.targetSets }, (_, i) => ({
+                  setNumber: i + 1,
+                  targetReps: exercise.targetReps,
+                  weight: '',
+                  reps: '',
+                  completed: false,
+                  pinchStatus: 'none' as const
+                }));
 
-            return (
-              <ExerciseCard
-                key={exercise.id}
-                exercise={exercise}
-                sets={exerciseSets}
-                unit={progress.unit}
-                userWeightKg={progress.userWeightKg || 75}
-                soundEnabled={progress.soundEnabled}
-                onUpdateSet={(setIndex, updated) => handleUpdateSet(exercise.id, setIndex, updated)}
-                onStartRestTimer={handleStartRestTimer}
-              />
-            );
-          })}
-        </div>
+                return (
+                  <ExerciseCard
+                    key={exercise.id}
+                    exercise={exercise}
+                    sets={exerciseSets}
+                    unit={progress.unit}
+                    userWeightKg={progress.userWeightKg || 75}
+                    soundEnabled={progress.soundEnabled}
+                    onUpdateSet={(setIndex, updated) => handleUpdateSet(exercise.id, setIndex, updated)}
+                    onStartRestTimer={handleStartRestTimer}
+                  />
+                );
+              })
+            )}
+          </div>
+        )}
 
         {/* Session Summary & Hip Reflection Card */}
-        <SessionSummaryCard
-          session={activeSessionPlan}
-          progress={sessionProgress}
-          userWeightKg={progress.userWeightKg || 75}
-          soundEnabled={progress.soundEnabled}
-          onCompleteSession={handleCompleteSession}
-          onUncompleteSession={handleUncompleteSession}
-        />
+        {activeSessionPlan && (
+          <SessionSummaryCard
+            session={activeSessionPlan}
+            progress={sessionProgress}
+            userWeightKg={progress.userWeightKg || 75}
+            soundEnabled={progress.soundEnabled}
+            onCompleteSession={handleCompleteSession}
+            onUncompleteSession={handleUncompleteSession}
+          />
+        )}
       </main>
 
       {/* Floating Rest Timer Dock */}
@@ -423,9 +490,21 @@ export function App() {
         progress={progress}
         onResetWeek={handleResetWeek}
         onDataImported={() => {
+          setPlans(loadWorkoutPlans());
+          setActivePlanId(getActivePlanId());
           setProgress(loadWeekProgress());
           setHistory(loadHistory());
         }}
+      />
+
+      {/* Multi-Plan Manager & Plan Editor Modal */}
+      <PlanManagerModal
+        isOpen={planManagerOpen}
+        onClose={() => setPlanManagerOpen(false)}
+        plans={plans}
+        activePlanId={activePlan.id}
+        onSelectPlan={handleSelectPlan}
+        onSavePlans={handleSavePlans}
       />
     </div>
   );

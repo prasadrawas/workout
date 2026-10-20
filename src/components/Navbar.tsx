@@ -1,5 +1,5 @@
 import { useState, type FC } from 'react';
-import { Volume2, VolumeX, ShieldAlert, History, Calendar, Scale, X, Check, Dumbbell } from 'lucide-react';
+import { Volume2, VolumeX, ShieldAlert, History, Calendar, Scale, X, Check, Dumbbell, Layers, ChevronDown } from 'lucide-react';
 import { getTodayDayOfWeek } from '../utils/storage';
 import type { DayOfWeek } from '../types/workout';
 
@@ -14,6 +14,8 @@ interface NavbarProps {
   onOpenHistory: () => void;
   currentDay: DayOfWeek;
   onSelectDay: (day: DayOfWeek) => void;
+  activePlanName?: string;
+  onOpenPlanManager: () => void;
 }
 
 export const Navbar: FC<NavbarProps> = ({
@@ -26,7 +28,9 @@ export const Navbar: FC<NavbarProps> = ({
   onOpenSafetyGuide,
   onOpenHistory,
   currentDay,
-  onSelectDay
+  onSelectDay,
+  activePlanName,
+  onOpenPlanManager
 }) => {
   const today = getTodayDayOfWeek();
   const isViewingToday = currentDay === today;
@@ -65,6 +69,17 @@ export const Navbar: FC<NavbarProps> = ({
           </div>
 
           <div className="nav-actions">
+            {/* Active Workout Plan Switcher */}
+            <button
+              className="btn-plan-switcher"
+              title="Manage and Switch Workout Plans"
+              onClick={onOpenPlanManager}
+            >
+              <Layers size={14} className="plan-switcher-icon" />
+              <span className="plan-switcher-text">{activePlanName || 'Plan'}</span>
+              <ChevronDown size={12} className="plan-switcher-chevron" />
+            </button>
+
             {/* Jump to Today Button if viewing other day */}
             {!isViewingToday && (
               <button

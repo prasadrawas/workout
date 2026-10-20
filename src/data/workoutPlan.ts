@@ -1,4 +1,4 @@
-import type { DayPlan, ProgressionPhase, WarmupItem } from '../types/workout';
+import type { DayPlan, ProgressionPhase, WarmupItem, WorkoutPlan } from '../types/workout';
 
 export const MORNING_WARMUP_ROUTINE: WarmupItem[] = [
   {
@@ -1167,3 +1167,641 @@ export const THR_SAFETY_RULES = [
     description: 'Stop for sharp hip pain, a new limp, sudden loss of function, or feeling of instability. Seek clinical assessment if severe.'
   }
 ];
+
+export const DEFAULT_THR_PLAN: WorkoutPlan = {
+  id: 'thr-recovery-dual',
+  name: 'THR Hip Recovery & Full Body (7-Day Dual)',
+  description: 'Dual-session program: morning gym strength & unilateral right-hip priority, plus evening home mobility & pelvic alignment.',
+  focusTag: 'THR Recovery & Strength',
+  isCustom: false,
+  days: WORKOUT_PLAN
+};
+
+export const UPPER_LOWER_STRENGTH_PLAN: WorkoutPlan = {
+  id: 'upper-lower-hypertrophy',
+  name: 'Upper / Lower Hypertrophy Split (7-Day)',
+  description: 'Balanced muscle-building split with dedicated upper, lower, core, and recovery days.',
+  focusTag: 'Hypertrophy & Strength',
+  isCustom: false,
+  days: [
+    {
+      dayId: 'monday',
+      dayName: 'Monday',
+      shortName: 'Mon',
+      morning: {
+        id: 'ul-mon-morning',
+        title: 'Upper Body A (Chest, Back & Delts)',
+        subtitle: 'Primary compound upper push & pull focus',
+        location: 'Gym',
+        durationEstimate: '50-60 min',
+        description: 'Heavy compound pressing and rowing with strict eccentric control.',
+        hasWarmup: true,
+        exercises: [
+          {
+            id: 'ul-bench-press',
+            name: 'Dumbbell Flat Bench Press',
+            targetSets: 4,
+            targetReps: '8–10 reps',
+            defaultRestSec: 90,
+            category: 'push',
+            met: 4.8,
+            durationSecPerSet: 45,
+            notes: 'Plant feet flat, control the descent, explode up.'
+          },
+          {
+            id: 'ul-chest-supported-row',
+            name: 'Chest-Supported Incline Row',
+            targetSets: 4,
+            targetReps: '10–12 reps',
+            defaultRestSec: 90,
+            category: 'pull',
+            met: 4.8,
+            durationSecPerSet: 45,
+            notes: 'Squeeze shoulder blades without arching lower back.'
+          },
+          {
+            id: 'ul-overhead-press',
+            name: 'Seated Dumbbell Shoulder Press',
+            targetSets: 3,
+            targetReps: '10–12 reps',
+            defaultRestSec: 75,
+            category: 'push',
+            met: 4.0,
+            durationSecPerSet: 40,
+            notes: 'Neutral grip is shoulder-friendly; core braced.'
+          },
+          {
+            id: 'ul-lat-pulldown',
+            name: 'Wide-Grip Lat Pulldown',
+            targetSets: 3,
+            targetReps: '10–12 reps',
+            defaultRestSec: 75,
+            category: 'pull',
+            met: 4.2,
+            durationSecPerSet: 40,
+            notes: 'Drive elbows down into your back pockets.'
+          },
+          {
+            id: 'ul-tricep-rope',
+            name: 'Cable Triceps Rope Pushdown',
+            targetSets: 3,
+            targetReps: '12–15 reps',
+            defaultRestSec: 60,
+            category: 'push',
+            met: 3.5,
+            durationSecPerSet: 35,
+            notes: 'Lock elbows at your sides.'
+          }
+        ]
+      },
+      evening: {
+        id: 'ul-mon-evening',
+        title: 'Chest & Shoulder Decompression',
+        subtitle: 'Restorative mobility and postural reset',
+        location: 'Home',
+        durationEstimate: '15-20 min',
+        description: 'Gentle stretches to open anterior shoulder capsule and thoracic spine.',
+        exercises: [
+          {
+            id: 'ul-doorway-pec',
+            name: 'Doorway Pec Stretch',
+            targetSets: 2,
+            targetReps: '30s hold per side',
+            defaultRestSec: 30,
+            category: 'mobility',
+            isTimeBased: true,
+            met: 2.3,
+            durationSecPerSet: 30,
+            notes: 'Gentle opening; avoid over-stretching the front shoulder capsule.'
+          },
+          {
+            id: 'ul-child-pose',
+            name: 'Child’s Pose with Lat Reach',
+            targetSets: 2,
+            targetReps: '40s hold',
+            defaultRestSec: 30,
+            category: 'mobility',
+            isTimeBased: true,
+            met: 2.3,
+            durationSecPerSet: 40,
+            notes: 'Walk hands side-to-side to gently stretch lats.'
+          }
+        ]
+      }
+    },
+    {
+      dayId: 'tuesday',
+      dayName: 'Tuesday',
+      shortName: 'Tue',
+      morning: {
+        id: 'ul-tue-morning',
+        title: 'Lower Body A (Quads & Calves Focus)',
+        subtitle: 'Bilateral & unilateral knee-dominant development',
+        location: 'Gym',
+        durationEstimate: '50-60 min',
+        hasWarmup: true,
+        exercises: [
+          {
+            id: 'ul-leg-press-quad',
+            name: 'Seated Leg Press (Mid Foot)',
+            targetSets: 4,
+            targetReps: '10–12 reps',
+            defaultRestSec: 90,
+            category: 'legs',
+            met: 5.5,
+            durationSecPerSet: 50,
+            notes: 'Controlled eccentric, avoid lower back rounding.'
+          },
+          {
+            id: 'ul-goblet-squat',
+            name: 'Dumbbell Goblet Squat (to bench)',
+            targetSets: 3,
+            targetReps: '10–12 reps',
+            defaultRestSec: 90,
+            category: 'legs',
+            met: 5.5,
+            durationSecPerSet: 45,
+            notes: 'Stay within pain-free knee & hip range.'
+          },
+          {
+            id: 'ul-leg-extension',
+            name: 'Seated Leg Extension',
+            targetSets: 3,
+            targetReps: '12–15 reps',
+            defaultRestSec: 60,
+            category: 'legs',
+            met: 3.8,
+            durationSecPerSet: 40,
+            notes: 'Hold at top for 1s squeeze.'
+          },
+          {
+            id: 'ul-standing-calf',
+            name: 'Standing Calf Raise',
+            targetSets: 4,
+            targetReps: '15 reps',
+            defaultRestSec: 60,
+            category: 'legs',
+            met: 3.5,
+            durationSecPerSet: 40,
+            notes: 'Full deep stretch at bottom, high peak on big toes.'
+          }
+        ]
+      },
+      evening: {
+        id: 'ul-tue-evening',
+        title: 'Quad & Hip Flexor Reset',
+        subtitle: 'Targeted lower body release',
+        location: 'Home',
+        durationEstimate: '15-20 min',
+        exercises: [
+          {
+            id: 'ul-couch-stretch',
+            name: 'Gentle Half-Kneeling Hip Stretch',
+            targetSets: 2,
+            targetReps: '30s hold per side',
+            defaultRestSec: 30,
+            category: 'mobility',
+            isTimeBased: true,
+            met: 2.3,
+            durationSecPerSet: 30,
+            notes: 'Maintain neutral pelvis; avoid anterior pinch.'
+          },
+          {
+            id: 'ul-figure-four-gentle',
+            name: 'Supine Glute Stretch (Gentle)',
+            targetSets: 2,
+            targetReps: '30s hold per side',
+            defaultRestSec: 30,
+            category: 'mobility',
+            isTimeBased: true,
+            met: 2.3,
+            durationSecPerSet: 30,
+            notes: 'Gentle stretch across lateral hip.'
+          }
+        ]
+      }
+    },
+    {
+      dayId: 'wednesday',
+      dayName: 'Wednesday',
+      shortName: 'Wed',
+      morning: {
+        id: 'ul-wed-morning',
+        title: 'Active Recovery & Core Stability',
+        subtitle: 'Cardiovascular flow and trunk endurance',
+        location: 'Gym',
+        durationEstimate: '35-45 min',
+        hasWarmup: true,
+        exercises: [
+          {
+            id: 'ul-incline-treadmill',
+            name: 'Incline Treadmill Walk (or Elliptical)',
+            targetSets: 1,
+            targetReps: '20 minutes steady state',
+            defaultRestSec: 0,
+            category: 'cardio',
+            isTimeBased: true,
+            met: 4.5,
+            durationSecPerSet: 1200,
+            notes: 'Comfortable Zone 2 pace, tall posture.'
+          },
+          {
+            id: 'ul-deadbug-core',
+            name: 'Deadbug Control',
+            targetSets: 3,
+            targetReps: '10 reps per side',
+            defaultRestSec: 60,
+            category: 'core',
+            met: 3.8,
+            durationSecPerSet: 40,
+            notes: 'Lower back pinned firmly to the mat.'
+          },
+          {
+            id: 'ul-side-plank-core',
+            name: 'Side Plank from Knees/Feet',
+            targetSets: 3,
+            targetReps: '25s hold per side',
+            defaultRestSec: 45,
+            category: 'core',
+            isTimeBased: true,
+            met: 3.8,
+            durationSecPerSet: 25,
+            notes: 'Shoulder stacked directly over elbow, pelvis lifted high.'
+          }
+        ]
+      },
+      evening: {
+        id: 'ul-wed-evening',
+        title: 'Midweek Spinal & Thoracic Flow',
+        subtitle: 'Spine decompression and breathing',
+        location: 'Home',
+        durationEstimate: '15 min',
+        exercises: [
+          {
+            id: 'ul-cat-cow',
+            name: 'Cat-Camel Gentle Flow',
+            targetSets: 2,
+            targetReps: '10 smooth reps',
+            defaultRestSec: 30,
+            category: 'mobility',
+            met: 2.3,
+            durationSecPerSet: 45,
+            notes: 'Rhythmic breath-coordinated spinal articulation.'
+          },
+          {
+            id: 'ul-open-book',
+            name: 'Side-Lying Thoracic Open Book',
+            targetSets: 2,
+            targetReps: '8 reps per side',
+            defaultRestSec: 30,
+            category: 'mobility',
+            met: 2.3,
+            durationSecPerSet: 40,
+            notes: 'Keep hips stacked, rotate ribcage smoothly.'
+          }
+        ]
+      }
+    },
+    {
+      dayId: 'thursday',
+      dayName: 'Thursday',
+      shortName: 'Thu',
+      morning: {
+        id: 'ul-thu-morning',
+        title: 'Upper Body B (Shoulders, Arms & Upper Back)',
+        subtitle: 'Hypertrophy and posture support',
+        location: 'Gym',
+        durationEstimate: '50-60 min',
+        hasWarmup: true,
+        exercises: [
+          {
+            id: 'ul-incline-db-press',
+            name: 'Incline Dumbbell Press (30°)',
+            targetSets: 4,
+            targetReps: '10–12 reps',
+            defaultRestSec: 90,
+            category: 'push',
+            met: 4.8,
+            durationSecPerSet: 45,
+            notes: 'Upper chest emphasis with neutral wrist alignment.'
+          },
+          {
+            id: 'ul-seated-cable-row',
+            name: 'Seated Neutral-Grip Cable Row',
+            targetSets: 4,
+            targetReps: '10–12 reps',
+            defaultRestSec: 75,
+            category: 'pull',
+            met: 4.5,
+            durationSecPerSet: 45,
+            notes: 'Maintain tall spine, row to belly button.'
+          },
+          {
+            id: 'ul-lateral-raise',
+            name: 'Dumbbell Lateral Raise',
+            targetSets: 4,
+            targetReps: '12–15 reps',
+            defaultRestSec: 60,
+            category: 'push',
+            met: 3.5,
+            durationSecPerSet: 35,
+            notes: 'Lead slightly with elbows, no swinging.'
+          },
+          {
+            id: 'ul-face-pull',
+            name: 'Cable Face Pull (Rope)',
+            targetSets: 3,
+            targetReps: '15 reps',
+            defaultRestSec: 60,
+            category: 'pull',
+            met: 3.5,
+            durationSecPerSet: 40,
+            notes: 'External rotation at finish; pulls to eye level.'
+          },
+          {
+            id: 'ul-incline-curl',
+            name: 'Incline Dumbbell Bicep Curl',
+            targetSets: 3,
+            targetReps: '10–12 reps',
+            defaultRestSec: 60,
+            category: 'pull',
+            met: 3.5,
+            durationSecPerSet: 35,
+            notes: 'Full stretch at bottom, squeeze at peak.'
+          }
+        ]
+      },
+      evening: {
+        id: 'ul-thu-evening',
+        title: 'Neck & Upper Back Release',
+        subtitle: 'Relieve upper body tension',
+        location: 'Home',
+        durationEstimate: '15 min',
+        exercises: [
+          {
+            id: 'ul-upper-trap-stretch',
+            name: 'Seated Upper Trapezius Stretch',
+            targetSets: 2,
+            targetReps: '30s hold per side',
+            defaultRestSec: 30,
+            category: 'mobility',
+            isTimeBased: true,
+            met: 2.3,
+            durationSecPerSet: 30,
+            notes: 'Very gentle ear-to-shoulder guidance.'
+          },
+          {
+            id: 'ul-cross-body-shoulder',
+            name: 'Posterior Shoulder Stretch',
+            targetSets: 2,
+            targetReps: '30s hold per side',
+            defaultRestSec: 30,
+            category: 'mobility',
+            isTimeBased: true,
+            met: 2.3,
+            durationSecPerSet: 30,
+            notes: 'Keep shoulders relaxed down away from ears.'
+          }
+        ]
+      }
+    },
+    {
+      dayId: 'friday',
+      dayName: 'Friday',
+      shortName: 'Fri',
+      morning: {
+        id: 'ul-fri-morning',
+        title: 'Lower Body B (Glutes & Hamstring Chain)',
+        subtitle: 'Posterior chain strength and hip hinge',
+        location: 'Gym',
+        durationEstimate: '50-60 min',
+        hasWarmup: true,
+        exercises: [
+          {
+            id: 'ul-romanian-deadlift',
+            name: 'Dumbbell Romanian Deadlift (RDL)',
+            targetSets: 4,
+            targetReps: '10–12 reps',
+            defaultRestSec: 90,
+            category: 'legs',
+            met: 5.5,
+            durationSecPerSet: 45,
+            notes: 'Hips push back, shins vertical, flat neutral back.'
+          },
+          {
+            id: 'ul-lying-leg-curl',
+            name: 'Lying or Seated Hamstring Curl',
+            targetSets: 4,
+            targetReps: '10–12 reps',
+            defaultRestSec: 75,
+            category: 'legs',
+            met: 4.0,
+            durationSecPerSet: 40,
+            notes: 'Control eccentric return without slamming plates.'
+          },
+          {
+            id: 'ul-hip-thrust-machine',
+            name: 'Machine Hip Thrust or Glute Bridge',
+            targetSets: 3,
+            targetReps: '12 reps',
+            defaultRestSec: 75,
+            category: 'legs',
+            met: 4.5,
+            durationSecPerSet: 45,
+            notes: 'Drive through heels, squeeze glutes at top lockout.'
+          },
+          {
+            id: 'ul-seated-calf',
+            name: 'Seated Calf Raise',
+            targetSets: 3,
+            targetReps: '15 reps',
+            defaultRestSec: 60,
+            category: 'legs',
+            met: 3.5,
+            durationSecPerSet: 40,
+            notes: 'Soleus bias, slow controlled pause.'
+          }
+        ]
+      },
+      evening: {
+        id: 'ul-fri-evening',
+        title: 'Hamstring & Glute Flush',
+        subtitle: 'Post-hinge lower body recovery',
+        location: 'Home',
+        durationEstimate: '15-20 min',
+        exercises: [
+          {
+            id: 'ul-hamstring-strap',
+            name: 'Supine Hamstring Stretch with Towel/Strap',
+            targetSets: 2,
+            targetReps: '40s hold per side',
+            defaultRestSec: 30,
+            category: 'mobility',
+            isTimeBased: true,
+            met: 2.3,
+            durationSecPerSet: 40,
+            notes: 'Gentle pull; opposite leg stays straight on floor.'
+          },
+          {
+            id: 'ul-piriformis-stretch',
+            name: 'Supported Glute / Piriformis Stretch',
+            targetSets: 2,
+            targetReps: '30s hold per side',
+            defaultRestSec: 30,
+            category: 'mobility',
+            isTimeBased: true,
+            met: 2.3,
+            durationSecPerSet: 30,
+            notes: 'Relax pelvis and breathe deeply into tension.'
+          }
+        ]
+      }
+    },
+    {
+      dayId: 'saturday',
+      dayName: 'Saturday',
+      shortName: 'Sat',
+      morning: {
+        id: 'ul-sat-morning',
+        title: 'Full Body Conditioning & Arms',
+        subtitle: 'Dynamic full-body workout & stamina',
+        location: 'Gym',
+        durationEstimate: '45-50 min',
+        hasWarmup: true,
+        exercises: [
+          {
+            id: 'ul-kettlebell-deadlift',
+            name: 'Kettlebell / Dumbbell Suitcase Carry',
+            targetSets: 3,
+            targetReps: '40 seconds per side',
+            defaultRestSec: 60,
+            category: 'core',
+            isTimeBased: true,
+            met: 4.5,
+            durationSecPerSet: 40,
+            notes: 'Walk tall with zero side tilting or leaning.'
+          },
+          {
+            id: 'ul-cable-chest-fly',
+            name: 'Cable High-to-Low Fly',
+            targetSets: 3,
+            targetReps: '12–15 reps',
+            defaultRestSec: 60,
+            category: 'push',
+            met: 3.8,
+            durationSecPerSet: 40,
+            notes: 'Wide hug motion, feel chest contract.'
+          },
+          {
+            id: 'ul-cable-hammer-curl',
+            name: 'Rope Hammer Curl',
+            targetSets: 3,
+            targetReps: '12 reps',
+            defaultRestSec: 60,
+            category: 'pull',
+            met: 3.5,
+            durationSecPerSet: 35,
+            notes: 'Targets brachialis and forearms.'
+          },
+          {
+            id: 'ul-overhead-extension',
+            name: 'Cable Overhead Tricep Extension',
+            targetSets: 3,
+            targetReps: '12 reps',
+            defaultRestSec: 60,
+            category: 'push',
+            met: 3.5,
+            durationSecPerSet: 35,
+            notes: 'Long head tricep stretch and squeeze.'
+          }
+        ]
+      },
+      evening: {
+        id: 'ul-sat-evening',
+        title: 'Weekend Full-Body Relaxation',
+        subtitle: 'Whole-body joint unwind',
+        location: 'Home',
+        durationEstimate: '15 min',
+        exercises: [
+          {
+            id: 'ul-reclined-twist',
+            name: 'Reclined Gentle Supine Twist',
+            targetSets: 2,
+            targetReps: '45s hold per side',
+            defaultRestSec: 30,
+            category: 'mobility',
+            isTimeBased: true,
+            met: 2.3,
+            durationSecPerSet: 45,
+            notes: 'Both shoulders grounded on floor.'
+          },
+          {
+            id: 'ul-legs-up-wall',
+            name: 'Legs-Up-The-Wall Circulatory Rest',
+            targetSets: 1,
+            targetReps: '5 minutes passive rest',
+            defaultRestSec: 0,
+            category: 'mobility',
+            isTimeBased: true,
+            met: 1.5,
+            durationSecPerSet: 300,
+            notes: 'Venous return, nervous system down-regulation.'
+          }
+        ]
+      }
+    },
+    {
+      dayId: 'sunday',
+      dayName: 'Sunday',
+      shortName: 'Sun',
+      morning: {
+        id: 'ul-sun-morning',
+        title: 'Rest & Outdoor Nature Walk',
+        subtitle: 'Low-impact active recovery & sunshine',
+        location: 'Home',
+        durationEstimate: '30-45 min',
+        exercises: [
+          {
+            id: 'ul-sunday-walk',
+            name: 'Casual Outdoor Walk',
+            targetSets: 1,
+            targetReps: '30–45 minutes brisk walk',
+            defaultRestSec: 0,
+            category: 'cardio',
+            isTimeBased: true,
+            met: 3.3,
+            durationSecPerSet: 2100,
+            notes: 'Promotes blood circulation, joint lubrication, and mental recharge.'
+          }
+        ]
+      },
+      evening: {
+        id: 'ul-sun-evening',
+        title: 'Weekly Reset & Deep Breathing',
+        subtitle: 'Preparation for the coming training week',
+        location: 'Home',
+        durationEstimate: '15 min',
+        exercises: [
+          {
+            id: 'ul-deep-belly-breathing',
+            name: 'Diaphragmatic Box Breathing',
+            targetSets: 1,
+            targetReps: '5 minutes (4s in, 4s hold, 4s out, 4s hold)',
+            defaultRestSec: 0,
+            category: 'mobility',
+            isTimeBased: true,
+            met: 1.3,
+            durationSecPerSet: 300,
+            notes: 'Activates parasympathetic rest and digest recovery.'
+          }
+        ]
+      }
+    }
+  ]
+};
+
+export const PRESET_PLANS: WorkoutPlan[] = [
+  DEFAULT_THR_PLAN,
+  UPPER_LOWER_STRENGTH_PLAN
+];
+
