@@ -14,8 +14,8 @@ export default defineConfig({
         name: 'Workout "By Prasad Rawas"',
         short_name: 'Workout',
         description: 'Workout "By Prasad Rawas" - 7-day dual-session workout and hip rehabilitation tracker',
-        theme_color: '#0b0f19',
-        background_color: '#0b0f19',
+        theme_color: '#0a0a0b',
+        background_color: '#0a0a0b',
         display: 'standalone',
         orientation: 'portrait',
         icons: [
