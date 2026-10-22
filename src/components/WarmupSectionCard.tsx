@@ -52,7 +52,7 @@ export const WarmupSectionCard: FC<WarmupSectionCardProps> = ({
   const [isPaused, setIsPaused] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [phase, setPhase] = useState<'hold' | 'rest'>('hold');
-  const [timeLeft, setTimeLeft] = useState(30);
+  const [timeLeft, setTimeLeft] = useState(60);
   const [voiceEnabled, setVoiceEnabled] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -146,26 +146,26 @@ export const WarmupSectionCard: FC<WarmupSectionCardProps> = ({
               return 0;
             }
 
-            // Move to 10-second REST
+            // Move to 12-second REST
             setPhase('rest');
             const nextStretch = stretchesRef.current[currentIdxRef.current + 1];
             speakText(
-              `Rest ten seconds. Next: ${nextStretch ? nextStretch.name : 'next stretch'}`,
+              `Rest twelve seconds. Next: ${nextStretch ? nextStretch.name : 'next stretch'}`,
               voiceEnabledRef.current && soundEnabledRef.current
             );
-            return 10;
+            return 12;
           } else {
-            // 10s Rest Completed! Transition to next stretch 30s Hold
+            // 12s Rest Completed! Transition to next stretch 60s Hold
             const nextIdx = currentIdxRef.current + 1;
             setCurrentIdx(nextIdx);
             setPhase('hold');
             const nextStretch = stretchesRef.current[nextIdx];
             playHoldStartBeep(soundEnabledRef.current);
             speakText(
-              `${nextStretch ? nextStretch.name : 'Next stretch'}, thirty seconds hold`,
+              `${nextStretch ? nextStretch.name : 'Next stretch'}, sixty seconds hold`,
               voiceEnabledRef.current && soundEnabledRef.current
             );
-            return 30;
+            return 60;
           }
         }
 
@@ -188,14 +188,14 @@ export const WarmupSectionCard: FC<WarmupSectionCardProps> = ({
       const startIdx = firstIncompleteIdx >= 0 ? firstIncompleteIdx : 0;
       setCurrentIdx(startIdx);
       setPhase('hold');
-      setTimeLeft(30);
+      setTimeLeft(60);
       setIsPaused(false);
       setIsFlowActive(true);
 
       const targetStretch = stretches[startIdx];
       playHoldStartBeep(soundEnabled);
       speakText(
-        `Starting warm-up. ${targetStretch.name}, thirty seconds hold`,
+        `Starting warm-up. ${targetStretch.name}, sixty seconds hold`,
         voiceEnabled && soundEnabled
       );
     } else {
@@ -214,11 +214,11 @@ export const WarmupSectionCard: FC<WarmupSectionCardProps> = ({
       const nextIdx = currentIdx + 1;
       setCurrentIdx(nextIdx);
       setPhase('hold');
-      setTimeLeft(30);
+      setTimeLeft(60);
       const nextStretch = stretches[nextIdx];
       playHoldStartBeep(soundEnabled);
       speakText(
-        `${nextStretch ? nextStretch.name : 'Next stretch'}, thirty seconds hold`,
+        `${nextStretch ? nextStretch.name : 'Next stretch'}, sixty seconds hold`,
         voiceEnabled && soundEnabled
       );
     }
@@ -229,23 +229,23 @@ export const WarmupSectionCard: FC<WarmupSectionCardProps> = ({
       const prevIdx = currentIdx - 1;
       setCurrentIdx(prevIdx);
       setPhase('hold');
-      setTimeLeft(30);
+      setTimeLeft(60);
       const prevStretch = stretches[prevIdx];
       playHoldStartBeep(soundEnabled);
       speakText(
-        `${prevStretch ? prevStretch.name : 'Previous stretch'}, thirty seconds hold`,
+        `${prevStretch ? prevStretch.name : 'Previous stretch'}, sixty seconds hold`,
         voiceEnabled && soundEnabled
       );
     }
   };
 
   const handleRestartCurrent = () => {
-    setTimeLeft(phase === 'hold' ? 30 : 10);
+    setTimeLeft(phase === 'hold' ? 60 : 12);
     const targetStretch = stretches[currentIdx];
     if (phase === 'hold') {
       playHoldStartBeep(soundEnabled);
       speakText(
-        `Restarting ${targetStretch.name}, thirty seconds hold`,
+        `Restarting ${targetStretch.name}, sixty seconds hold`,
         voiceEnabled && soundEnabled
       );
     }
@@ -255,7 +255,7 @@ export const WarmupSectionCard: FC<WarmupSectionCardProps> = ({
   const nextStretch = currentIdx < stretches.length - 1 ? stretches[currentIdx + 1] : null;
 
   // Circular progress calculations
-  const totalPhaseTime = phase === 'hold' ? 30 : 10;
+  const totalPhaseTime = phase === 'hold' ? 60 : 12;
   const progressRatio = Math.max(0, Math.min(1, timeLeft / totalPhaseTime));
   const circleRadius = 58;
   const circumference = 2 * Math.PI * circleRadius;
@@ -273,11 +273,11 @@ export const WarmupSectionCard: FC<WarmupSectionCardProps> = ({
             <div className="warmup-title-row">
               <h3 className="warmup-section-title">Warm-Up & Stretch Flow</h3>
               <span className="warmup-pill-tag">
-                {stretches.length} Stretches · 30s + 10s
+                {stretches.length} Stretches · 60s + 12s
               </span>
             </div>
             <p className="warmup-section-subtitle">
-              Daily hip mobility, pelvic control & posterior chain priming (~11 min)
+              Daily hip mobility, pelvic control & posterior chain priming (~20 min)
             </p>
           </div>
         </div>
@@ -302,7 +302,7 @@ export const WarmupSectionCard: FC<WarmupSectionCardProps> = ({
             onClick={handleStartFlow}
           >
             <Play size={16} fill="currentColor" />
-            <span>{allCompleted ? 'Repeat Guided Stretch Flow' : 'Start Guided Stretch Flow (30s / 10s)'}</span>
+            <span>{allCompleted ? 'Repeat Guided Stretch Flow' : 'Start Guided Stretch Flow (60s / 12s)'}</span>
           </button>
 
           <button
@@ -365,7 +365,7 @@ export const WarmupSectionCard: FC<WarmupSectionCardProps> = ({
           <div className="player-hero-box">
             <div className={`player-phase-chip ${phase}`}>
               <span className="phase-pulse-dot" />
-              {phase === 'hold' ? 'HOLD ACTIVE • 30s' : 'REST & PREPARE NEXT • 10s'}
+              {phase === 'hold' ? 'HOLD ACTIVE • 60s' : 'REST & PREPARE NEXT • 12s'}
             </div>
 
             <div className="player-countdown-display">
