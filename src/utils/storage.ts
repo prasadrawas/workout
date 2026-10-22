@@ -32,12 +32,12 @@ export function loadWorkoutPlans(): WorkoutPlan[] {
     // 1. Register all bundled JSON plans from src/data/plans/
     BUNDLED_JSON_PLANS.forEach((p) => planMap.set(p.id, p));
 
-    // 2. Merge any user-saved / custom plans from localStorage
+    // 2. Merge user-saved / custom plans from localStorage (bundled plans retain their latest JSON definitions)
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed)) {
         parsed.forEach((p: WorkoutPlan) => {
-          if (p && p.id) {
+          if (p && p.id && (p.isCustom || !planMap.has(p.id))) {
             planMap.set(p.id, p);
           }
         });
