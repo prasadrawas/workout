@@ -357,6 +357,19 @@
             "notes": "Hinge from hips, slight knee bend. Feel hamstrings and glutes. Keep dumbbells close to legs."
           },
           {
+            "id": "mon-m-hip-thrust",
+            "name": "Dumbbell Hip Thrust (Bench or Couch Support)",
+            "targetSets": 3,
+            "targetReps": "10–12",
+            "defaultRestSec": 75,
+            "category": "legs",
+            "rightHipFocus": true,
+            "met": 4.5,
+            "durationSecPerSet": 45,
+            "section": "main",
+            "notes": "Upper back across bench or couch, dumbbell on hips. Drive through heels to full extension, squeeze glutes hard for 2 sec at top. No arching lower back."
+          },
+          {
             "id": "mon-m-goblet-squat",
             "name": "Goblet Squat (Dumbbell)",
             "targetSets": 3,
@@ -3492,6 +3505,32 @@
             "met": 5.5,
             "durationSecPerSet": 50,
             "notes": "Film yourself from front. Watch for rightward shift. Increase depth gradually as symmetry improves."
+          },
+          {
+            "id": "fri-m-reverse-lunge",
+            "name": "Dumbbell Reverse Lunge",
+            "targetSets": 3,
+            "targetReps": "8–10 each leg",
+            "defaultRestSec": 75,
+            "category": "legs",
+            "rightHipFocus": true,
+            "met": 5,
+            "durationSecPerSet": 45,
+            "section": "main",
+            "notes": "Step backward with control, lowering back knee toward floor. Front shin stays nearly vertical, protecting right hip and knee from pinching. Right leg leads."
+          },
+          {
+            "id": "fri-m-step-down",
+            "name": "Eccentric Step-Down (Stair or Low Box)",
+            "targetSets": 3,
+            "targetReps": "8–10 each leg",
+            "defaultRestSec": 60,
+            "category": "legs",
+            "rightHipFocus": true,
+            "met": 4,
+            "durationSecPerSet": 40,
+            "section": "main",
+            "notes": "Stand on bottom stair or 2–4 inch box. Slowly lower free foot to tap floor with heel (3-sec eccentric lowering). Push through standing heel. Right knee tracks over second toe without caving inward."
           },
           {
             "id": "fri-m-split-squat",
