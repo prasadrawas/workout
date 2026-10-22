@@ -23,6 +23,7 @@ import { Navbar } from './components/Navbar';
 import { DaySelector } from './components/DaySelector';
 import { SessionToggle } from './components/SessionToggle';
 import { GymWarmupCard } from './components/GymWarmupCard';
+import { WarmupSectionCard } from './components/WarmupSectionCard';
 import { ExerciseCard } from './components/ExerciseCard';
 import { RestTimerDock } from './components/RestTimerDock';
 import { RestTimerModal } from './components/RestTimerModal';
@@ -30,7 +31,7 @@ import { HipSafetyDrawer } from './components/HipSafetyDrawer';
 import { HistoryModal } from './components/HistoryModal';
 import { SessionSummaryCard } from './components/SessionSummaryCard';
 import { PlanManagerModal } from './components/PlanManagerModal';
-import { MapPin, Clock, Sparkles, Flame } from 'lucide-react';
+import { MapPin, Clock, Sparkles, Flame, Dumbbell } from 'lucide-react';
 
 export function App() {
   const [currentDay, setCurrentDay] = useState<DayOfWeek>(() => getTodayDayOfWeek());
@@ -160,7 +161,23 @@ export function App() {
         warmupCompleted: {}
       };
 
-      const exerciseSets = [...(currentSessionData.sets[exerciseId] || [])];
+      const targetExercise = activeSessionPlan.exercises.find(e => e.id === exerciseId);
+      const defaultSetsCount = targetExercise?.targetSets || 1;
+      const defaultTargetReps = targetExercise?.targetReps || '';
+
+      const baseSets = currentSessionData.sets[exerciseId] || Array.from(
+        { length: defaultSetsCount },
+        (_, i) => ({
+          setNumber: i + 1,
+          targetReps: defaultTargetReps,
+          weight: '',
+          reps: '',
+          completed: false,
+          pinchStatus: 'none' as const
+        })
+      );
+
+      const exerciseSets = [...baseSets];
       exerciseSets[setIndex] = {
         ...exerciseSets[setIndex],
         ...updated
@@ -411,7 +428,7 @@ export function App() {
           </div>
         )}
 
-        {/* Morning Gym Warmup Checklist (shown on morning sessions with warmups) */}
+        {/* Morning Gym Warmup Checklist (shown on legacy plans with hasWarmup: true) */}
         {currentSession === 'morning' && activeSessionPlan?.hasWarmup && (
           <GymWarmupCard
             completedMap={sessionProgress.warmupCompleted || {}}
@@ -422,47 +439,82 @@ export function App() {
           />
         )}
 
-        {/* Exercises List */}
-        {activeSessionPlan && (
-          <div className="exercises-list">
-            {activeSessionPlan.exercises.length === 0 ? (
-              <div className="empty-exercises-notice" style={{ textAlign: 'center', padding: '30px 16px' }}>
-                <p style={{ color: 'var(--text-secondary)', marginBottom: 12 }}>No exercises planned for this session yet.</p>
-                <button 
-                  className="btn-tool-action primary" 
-                  style={{ margin: '0 auto' }}
-                  onClick={() => setPlanManagerOpen(true)}
-                >
-                  Edit Routine in Plan Manager
-                </button>
-              </div>
-            ) : (
-              activeSessionPlan.exercises.map((exercise) => {
-                const exerciseSets = sessionProgress.sets?.[exercise.id] || Array.from({ length: exercise.targetSets }, (_, i) => ({
-                  setNumber: i + 1,
-                  targetReps: exercise.targetReps,
-                  weight: '',
-                  reps: '',
-                  completed: false,
-                  pinchStatus: 'none' as const
-                }));
+        {/* Morning & Evening Warm-up & Stretch Flow Card with Section-level Guided Timer */}
+        {(() => {
+          const isWarmupEx = (ex: any) =>
+            ex.section === 'warmup' || (typeof ex.id === 'string' && ex.id.match(/-s\d+$/) !== null);
 
-                return (
-                  <ExerciseCard
-                    key={exercise.id}
-                    exercise={exercise}
-                    sets={exerciseSets}
-                    unit={progress.unit}
-                    userWeightKg={progress.userWeightKg || 75}
-                    soundEnabled={progress.soundEnabled}
-                    onUpdateSet={(setIndex, updated) => handleUpdateSet(exercise.id, setIndex, updated)}
-                    onStartRestTimer={handleStartRestTimer}
-                  />
-                );
-              })
-            )}
-          </div>
-        )}
+          const warmupStretches = activeSessionPlan?.exercises.filter(isWarmupEx) || [];
+          const mainExercises = activeSessionPlan?.exercises.filter((ex) => !isWarmupEx(ex)) || [];
+
+          return (
+            <>
+              {warmupStretches.length > 0 && (
+                <WarmupSectionCard
+                  stretches={warmupStretches}
+                  sessionProgress={sessionProgress}
+                  soundEnabled={progress.soundEnabled}
+                  unit={progress.unit}
+                  userWeightKg={progress.userWeightKg || 75}
+                  onUpdateSet={handleUpdateSet}
+                  onStartRestTimer={handleStartRestTimer}
+                />
+              )}
+
+              {/* Main Workout Exercises List */}
+              {activeSessionPlan && (
+                <div className="exercises-list">
+                  {warmupStretches.length > 0 && mainExercises.length > 0 && (
+                    <div className="section-header-divider">
+                      <div className="section-header-title">
+                        <Dumbbell size={18} color="#6366f1" />
+                        <span>Main Workout Session</span>
+                      </div>
+                      <span className="section-header-count">{mainExercises.length} Exercises</span>
+                    </div>
+                  )}
+
+                  {activeSessionPlan.exercises.length === 0 ? (
+                    <div className="empty-exercises-notice" style={{ textAlign: 'center', padding: '30px 16px' }}>
+                      <p style={{ color: 'var(--text-secondary)', marginBottom: 12 }}>No exercises planned for this session yet.</p>
+                      <button 
+                        className="btn-tool-action primary" 
+                        style={{ margin: '0 auto' }}
+                        onClick={() => setPlanManagerOpen(true)}
+                      >
+                        Edit Routine in Plan Manager
+                      </button>
+                    </div>
+                  ) : (
+                    mainExercises.map((exercise) => {
+                      const exerciseSets = sessionProgress.sets?.[exercise.id] || Array.from({ length: exercise.targetSets }, (_, i) => ({
+                        setNumber: i + 1,
+                        targetReps: exercise.targetReps,
+                        weight: '',
+                        reps: '',
+                        completed: false,
+                        pinchStatus: 'none' as const
+                      }));
+
+                      return (
+                        <ExerciseCard
+                          key={exercise.id}
+                          exercise={exercise}
+                          sets={exerciseSets}
+                          unit={progress.unit}
+                          userWeightKg={progress.userWeightKg || 75}
+                          soundEnabled={progress.soundEnabled}
+                          onUpdateSet={(setIndex, updated) => handleUpdateSet(exercise.id, setIndex, updated)}
+                          onStartRestTimer={handleStartRestTimer}
+                        />
+                      );
+                    })
+                  )}
+                </div>
+              )}
+            </>
+          );
+        })()}
 
         {/* Session Summary & Hip Reflection Card */}
         {activeSessionPlan && (

@@ -100,3 +100,56 @@ export function playCountdownTick(enabled: boolean = true) {
   osc.start(now);
   osc.stop(now + 0.06);
 }
+
+export function playHoldStartBeep(enabled: boolean = true) {
+  if (!enabled) return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  if ('vibrate' in navigator) {
+    try {
+      navigator.vibrate([60, 40, 80]);
+    } catch (_) {}
+  }
+
+  const now = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(440, now);
+  osc.frequency.setValueAtTime(880, now + 0.07);
+
+  gain.gain.setValueAtTime(0.18, now);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.22);
+
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+
+  osc.start(now);
+  osc.stop(now + 0.24);
+}
+
+export function speakText(text: string, enabled: boolean = true) {
+  if (!enabled) return;
+  if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+  try {
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
+    utterance.volume = 1.0;
+    window.speechSynthesis.speak(utterance);
+  } catch (e) {
+    console.warn('Speech synthesis failed', e);
+  }
+}
+
+export function cancelSpeech() {
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    try {
+      window.speechSynthesis.cancel();
+    } catch (_) {}
+  }
+}
+
