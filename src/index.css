@@ -1277,6 +1277,207 @@ h1, h2, h3, h4, .font-display {
   color: var(--text-muted);
 }
 
+/* ========================================================
+   DAILY MUST-DO HIP & ANKLE REHAB SECTION CARD
+   ======================================================== */
+.daily-rehab-section-card {
+  padding: 16px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  background: linear-gradient(135deg, rgba(22, 22, 24, 0.98), rgba(24, 18, 43, 0.94));
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 24px rgba(139, 92, 246, 0.06);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.daily-rehab-section-card.section-all-done {
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 24px rgba(16, 185, 129, 0.08);
+}
+
+.rehab-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  cursor: pointer;
+  user-select: none;
+  border-radius: var(--radius-md);
+  padding: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.rehab-section-header:hover {
+  opacity: 0.95;
+}
+
+.rehab-section-title-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+  min-width: 240px;
+}
+
+.rehab-icon-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 14px rgba(139, 92, 246, 0.15);
+}
+
+.rehab-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rehab-section-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin: 0;
+}
+
+.rehab-pill-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: #c084fc;
+  background: rgba(192, 132, 252, 0.12);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(192, 132, 252, 0.28);
+}
+
+.rehab-section-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 4px 0 0;
+  line-height: 1.4;
+}
+
+.rehab-header-stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rehab-progress-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: #c084fc;
+  background: rgba(139, 92, 246, 0.12);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.rehab-progress-badge.all-done {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.rehab-collapse-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.rehab-collapse-btn:hover {
+  color: var(--text-white);
+  border-color: var(--border-hover);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.rehab-collapsed-banner {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.rehab-collapsed-banner:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.rehab-collapsed-banner.completed {
+  background: rgba(16, 185, 129, 0.06);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.rehab-collapsed-banner.completed:hover {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.collapsed-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.check-bubble {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-full);
+  background: #10b981;
+  color: #061e12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+
+.banner-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.banner-subtext {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-left: auto;
+}
+
+.rehab-exercises-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
 
 /* ========================================================
    EXERCISE CARDS

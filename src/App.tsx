@@ -24,6 +24,7 @@ import { DaySelector } from './components/DaySelector';
 import { SessionToggle } from './components/SessionToggle';
 import { GymWarmupCard } from './components/GymWarmupCard';
 import { WarmupSectionCard } from './components/WarmupSectionCard';
+import { DailyRehabSectionCard } from './components/DailyRehabSectionCard';
 import { ExerciseCard } from './components/ExerciseCard';
 import { RestTimerDock } from './components/RestTimerDock';
 import { RestTimerModal } from './components/RestTimerModal';
@@ -439,16 +440,21 @@ export function App() {
           />
         )}
 
-        {/* Morning & Evening Warm-up & Stretch Flow Card with Section-level Guided Timer */}
+        {/* Morning & Evening Sections: 1. Warm-Up Flow -> 2. Daily Must-Do Rehab -> 3. Main Workout */}
         {(() => {
           const isWarmupEx = (ex: any) =>
             ex.section === 'warmup' || (typeof ex.id === 'string' && ex.id.match(/-s\d+$/) !== null);
 
+          const isDailyRehabEx = (ex: any) =>
+            ex.section === 'daily-rehab' || (typeof ex.id === 'string' && ex.id.match(/-d0[2-8]$/) !== null);
+
           const warmupStretches = activeSessionPlan?.exercises.filter(isWarmupEx) || [];
-          const mainExercises = activeSessionPlan?.exercises.filter((ex) => !isWarmupEx(ex)) || [];
+          const dailyRehabExercises = activeSessionPlan?.exercises.filter(isDailyRehabEx) || [];
+          const mainExercises = activeSessionPlan?.exercises.filter((ex) => !isWarmupEx(ex) && !isDailyRehabEx(ex)) || [];
 
           return (
             <>
+              {/* 1. Warm-Up & Stretch Flow Card with Section-level Guided Timer */}
               {warmupStretches.length > 0 && (
                 <WarmupSectionCard
                   stretches={warmupStretches}
@@ -461,10 +467,23 @@ export function App() {
                 />
               )}
 
-              {/* Main Workout Exercises List */}
+              {/* 2. Daily Must-Do Hip & Ankle Rehab Section (Collapsible & Auto-collapses on finish) */}
+              {dailyRehabExercises.length > 0 && (
+                <DailyRehabSectionCard
+                  exercises={dailyRehabExercises}
+                  sessionProgress={sessionProgress}
+                  soundEnabled={progress.soundEnabled}
+                  unit={progress.unit}
+                  userWeightKg={progress.userWeightKg || 75}
+                  onUpdateSet={handleUpdateSet}
+                  onStartRestTimer={handleStartRestTimer}
+                />
+              )}
+
+              {/* 3. Main Workout Exercises List */}
               {activeSessionPlan && (
                 <div className="exercises-list">
-                  {warmupStretches.length > 0 && mainExercises.length > 0 && (
+                  {(warmupStretches.length > 0 || dailyRehabExercises.length > 0) && mainExercises.length > 0 && (
                     <div className="section-header-divider">
                       <div className="section-header-title">
                         <Dumbbell size={18} color="#6366f1" />

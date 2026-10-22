@@ -25,7 +25,7 @@ export interface Exercise {
   rightHipFocus?: boolean;
   met?: number; // Metabolic Equivalent of Task (Compendium of Physical Activities)
   durationSecPerSet?: number; // Estimated active duration per set in seconds
-  section?: 'warmup' | 'main' | 'cooldown';
+  section?: 'warmup' | 'daily-rehab' | 'main' | 'cooldown';
 }
 
 export interface WarmupItem {
