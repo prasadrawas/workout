@@ -307,6 +307,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "mon-m-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "mon-m-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -331,19 +344,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "mon-m-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           },
           {
             "id": "mon-m-rdl",
@@ -750,6 +750,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "mon-e-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "mon-e-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -774,19 +787,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "mon-e-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           },
           {
             "id": "mon-e-toe-scrunch",
@@ -1104,6 +1104,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "tue-m-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "tue-m-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -1128,19 +1141,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "tue-m-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           },
           {
             "id": "tue-m-floor-press",
@@ -1531,6 +1531,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "tue-e-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "tue-e-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -1555,19 +1568,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "tue-e-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           }
         ]
       }
@@ -1874,6 +1874,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "wed-m-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "wed-m-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -1898,19 +1911,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "wed-m-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           },
           {
             "id": "wed-m-bike",
@@ -2318,6 +2318,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "wed-e-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "wed-e-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -2342,19 +2355,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "wed-e-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           }
         ]
       }
@@ -2661,6 +2661,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "thu-m-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "thu-m-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -2685,19 +2698,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "thu-m-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           },
           {
             "id": "thu-m-row",
@@ -3089,6 +3089,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "thu-e-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "thu-e-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -3113,19 +3126,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "thu-e-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           },
           {
             "id": "thu-e-trap-stretch",
@@ -3456,6 +3456,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "fri-m-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "fri-m-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -3480,19 +3493,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "fri-m-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           },
           {
             "id": "fri-m-goblet-squat",
@@ -3914,6 +3914,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "fri-e-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "fri-e-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -3938,19 +3951,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "fri-e-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           },
           {
             "id": "fri-e-toe-scrunch",
@@ -4268,6 +4268,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "sat-m-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "sat-m-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -4292,19 +4305,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "sat-m-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           },
           {
             "id": "sat-m-bike",
@@ -4686,6 +4686,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "sat-e-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "sat-e-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -4710,19 +4723,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "sat-e-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           },
           {
             "id": "sat-e-legs-up-wall",
@@ -5041,6 +5041,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "sun-m-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "sun-m-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -5065,19 +5078,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "sun-m-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           },
           {
             "id": "sun-m-rom-hip-flexion",
@@ -5488,6 +5488,19 @@
             "section": "daily-rehab"
           },
           {
+            "id": "sun-e-d09",
+            "name": "Weighted Hip Flexion",
+            "targetSets": 2,
+            "targetReps": "10–12 each side",
+            "defaultRestSec": 45,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3,
+            "durationSecPerSet": 40,
+            "section": "daily-rehab",
+            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
+          },
+          {
             "id": "sun-e-d07",
             "name": "Banded Ankle Eversion & Inversion",
             "targetSets": 2,
@@ -5512,19 +5525,6 @@
             "durationSecPerSet": 40,
             "notes": "Daily essential. Measure distance in cm weekly. Tight ankles feed into wobble.",
             "section": "daily-rehab"
-          },
-          {
-            "id": "sun-e-d09",
-            "name": "Weighted Hip Flexion",
-            "targetSets": 2,
-            "targetReps": "10–12 each side",
-            "defaultRestSec": 45,
-            "category": "hip-rehab",
-            "rightHipFocus": true,
-            "met": 3,
-            "durationSecPerSet": 40,
-            "section": "daily-rehab",
-            "notes": "Daily essential. Standing or seated with ankle weight or resistance band. Controlled lift with tall posture, hold 1s at top. Stop before any anterior hip pinching."
           },
           {
             "id": "sun-e-breathing",
