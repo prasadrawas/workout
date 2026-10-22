@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { DEFAULT_THR_PLAN } from './data/workoutPlan';
+import { DEFAULT_PLAN } from './data/plans';
 import type { DayOfWeek, HistoryEntry, SessionType, SetLog, WeekProgress, WorkoutPlan, WeightLogEntry } from './types/workout';
 import {
   addHistoryEntry,
@@ -47,7 +47,7 @@ export function App() {
   const [planManagerOpen, setPlanManagerOpen] = useState(false);
 
   // Active Plan Resolution
-  const activePlan = plans.find((p) => p.id === activePlanId) || plans[0] || DEFAULT_THR_PLAN;
+  const activePlan = plans.find((p) => p.id === activePlanId) || DEFAULT_PLAN || plans[0];
 
   const [progress, setProgress] = useState<WeekProgress>(() => loadWeekProgress(activePlan));
   const [history, setHistory] = useState<HistoryEntry[]>(() => loadHistory());

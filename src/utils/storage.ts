@@ -59,8 +59,16 @@ export function saveWorkoutPlans(plans: WorkoutPlan[]): void {
   }
 }
 
+const STORAGE_KEY_DEFAULT_MIGRATION = 'hipstrong_plan_default_v2_applied';
+
 export function getActivePlanId(): string {
   try {
+    const migrated = localStorage.getItem(STORAGE_KEY_DEFAULT_MIGRATION);
+    if (migrated !== DEFAULT_PLAN.id) {
+      localStorage.setItem(STORAGE_KEY_DEFAULT_MIGRATION, DEFAULT_PLAN.id);
+      localStorage.setItem(STORAGE_KEY_ACTIVE_PLAN, DEFAULT_PLAN.id);
+      return DEFAULT_PLAN.id;
+    }
     const saved = localStorage.getItem(STORAGE_KEY_ACTIVE_PLAN);
     if (saved) return saved;
   } catch (e) {

@@ -1,0 +1,1123 @@
+{
+  "id": "post-thr-fullbody-v2",
+  "name": "Post-THR Full Body: Strength, Mobility & Lower Leg",
+  "description": "7-day program for 3+ months post-right THR. Progressive strength training, hip mobility restoration, lower leg strengthening, ankle stability, QL work, and pelvic control. Morning gym + evening home sessions.",
+  "focusTag": "Rehabilitation, Strength & Mobility",
+  "isCustom": false,
+  "days": [
+    {
+      "dayId": "monday",
+      "dayName": "Monday",
+      "shortName": "Mon",
+      "morning": {
+        "id": "mon-am-lower-hinge",
+        "title": "Lower Body Strength — Hip Hinge Focus",
+        "subtitle": "Posterior chain + lower leg loading",
+        "location": "Gym",
+        "durationEstimate": "55–65 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "mon-m-rdl",
+            "name": "Dumbbell Romanian Deadlift",
+            "targetSets": 3,
+            "targetReps": "10",
+            "defaultRestSec": 90,
+            "category": "legs",
+            "met": 5.0,
+            "durationSecPerSet": 50,
+            "notes": "Hinge from hips, slight knee bend. Feel hamstrings and glutes. Keep dumbbells close to legs."
+          },
+          {
+            "id": "mon-m-goblet-squat",
+            "name": "Goblet Squat",
+            "targetSets": 3,
+            "targetReps": "10",
+            "defaultRestSec": 90,
+            "category": "legs",
+            "rightHipFocus": true,
+            "met": 5.5,
+            "durationSecPerSet": 50,
+            "notes": "Focus on symmetry — do not shift right. Use mirror. Stop before anterior pinch."
+          },
+          {
+            "id": "mon-m-stepup",
+            "name": "Dumbbell Step-Up (Low Box)",
+            "targetSets": 3,
+            "targetReps": "8 each leg",
+            "defaultRestSec": 75,
+            "category": "legs",
+            "rightHipFocus": true,
+            "met": 5.0,
+            "durationSecPerSet": 50,
+            "notes": "Right leg leads every set. Control the descent. Builds single-leg symmetry."
+          },
+          {
+            "id": "mon-m-hip-abduction",
+            "name": "Cable or Band Standing Hip Abduction",
+            "targetSets": 3,
+            "targetReps": "12 each leg",
+            "defaultRestSec": 60,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3.5,
+            "durationSecPerSet": 40,
+            "notes": "Squeeze glute med. Keep pelvis level — no hiking."
+          },
+          {
+            "id": "mon-m-seated-calf",
+            "name": "Seated Calf Raise",
+            "targetSets": 3,
+            "targetReps": "15",
+            "defaultRestSec": 60,
+            "category": "legs",
+            "met": 3.0,
+            "durationSecPerSet": 45,
+            "notes": "Slow 2-sec hold at top. Targets soleus — key for walking endurance."
+          },
+          {
+            "id": "mon-m-standing-calf",
+            "name": "Standing Calf Raise (Bilateral → Single Leg)",
+            "targetSets": 3,
+            "targetReps": "12",
+            "defaultRestSec": 60,
+            "category": "legs",
+            "met": 3.5,
+            "durationSecPerSet": 40,
+            "notes": "Full range — drop heel below step edge if available. Targets gastrocnemius."
+          },
+          {
+            "id": "mon-m-tib-raise",
+            "name": "Tibialis Anterior Raise (Wall Lean)",
+            "targetSets": 3,
+            "targetReps": "15",
+            "defaultRestSec": 45,
+            "category": "legs",
+            "met": 2.5,
+            "durationSecPerSet": 35,
+            "notes": "Lean back against wall, lift toes toward shins. Slow 2-sec eccentric. Prevents foot slap during gait."
+          },
+          {
+            "id": "mon-m-treadmill",
+            "name": "Treadmill Walk",
+            "targetSets": 1,
+            "targetReps": "10 minutes",
+            "defaultRestSec": 0,
+            "category": "cardio",
+            "isTimeBased": true,
+            "met": 3.5,
+            "durationSecPerSet": 600,
+            "notes": "Focus on even stride length and heel strike on right foot. Gait retraining."
+          }
+        ]
+      },
+      "evening": {
+        "id": "mon-pm-mobility-ankle",
+        "title": "Hip Mobility & Lower Leg Stability",
+        "subtitle": "Mobility restoration + ankle stability",
+        "location": "Home",
+        "durationEstimate": "25–30 min",
+        "exercises": [
+          {
+            "id": "mon-e-hip-flexor",
+            "name": "Half-Kneeling Hip Flexor Stretch",
+            "targetSets": 2,
+            "targetReps": "45s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.3,
+            "durationSecPerSet": 45,
+            "notes": "The stretch that improved anterior pinching ~90%. Maintain daily. Posterior pelvic tilt throughout."
+          },
+          {
+            "id": "mon-e-hip-rotation",
+            "name": "Supine Hip IR/ER Rotation (Feet on Wall)",
+            "targetSets": 2,
+            "targetReps": "10 each direction per leg",
+            "defaultRestSec": 30,
+            "category": "mobility",
+            "rightHipFocus": true,
+            "met": 2.0,
+            "durationSecPerSet": 50,
+            "notes": "Hips at 90°, feet on wall. Let knees fall gently inward (IR) and outward (ER). Stop before pain. Track range weekly."
+          },
+          {
+            "id": "mon-e-figure4",
+            "name": "Figure-4 Stretch (Supine)",
+            "targetSets": 2,
+            "targetReps": "30s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "rightHipFocus": true,
+            "met": 2.3,
+            "durationSecPerSet": 30,
+            "notes": "Works toward cross-legged sitting goal. Do not force right side. Gentle progressive stretch on deep external rotators."
+          },
+          {
+            "id": "mon-e-ql-stretch",
+            "name": "Side-Lying QL Stretch (Right Side Up)",
+            "targetSets": 2,
+            "targetReps": "30s hold",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.0,
+            "durationSecPerSet": 30,
+            "notes": "Reach right arm overhead, lengthen right side body. Addresses right QL tightness."
+          },
+          {
+            "id": "mon-e-single-leg-balance",
+            "name": "Single-Leg Balance (Right Foot)",
+            "targetSets": 3,
+            "targetReps": "20–30s hold",
+            "defaultRestSec": 30,
+            "category": "hip-rehab",
+            "isTimeBased": true,
+            "rightHipFocus": true,
+            "met": 2.5,
+            "durationSecPerSet": 30,
+            "notes": "Near wall for safety. Eyes open first. Targets right ankle proprioception + wobble control. Progress: eyes closed → foam pad."
+          },
+          {
+            "id": "mon-e-banded-ankle",
+            "name": "Banded Ankle Eversion & Inversion",
+            "targetSets": 2,
+            "targetReps": "15 each direction per foot",
+            "defaultRestSec": 30,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 2.0,
+            "durationSecPerSet": 40,
+            "notes": "Light band. Slow and controlled. Eversion = peroneals (lateral ankle). Inversion = tibialis posterior (medial ankle). Key for wobbly right ankle."
+          },
+          {
+            "id": "mon-e-toe-scrunch",
+            "name": "Towel Toe Scrunches",
+            "targetSets": 2,
+            "targetReps": "15 per foot",
+            "defaultRestSec": 30,
+            "category": "hip-rehab",
+            "met": 1.5,
+            "durationSecPerSet": 30,
+            "notes": "Builds intrinsic foot muscles and arch stability. Foundation for ankle stability."
+          }
+        ]
+      }
+    },
+    {
+      "dayId": "tuesday",
+      "dayName": "Tuesday",
+      "shortName": "Tue",
+      "morning": {
+        "id": "tue-am-upper-push-core",
+        "title": "Upper Body Push + Core & Pelvic Control",
+        "subtitle": "Pressing strength + anti-rotation training",
+        "location": "Gym",
+        "durationEstimate": "50–60 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "tue-m-bench",
+            "name": "Dumbbell Bench Press (Flat or Incline)",
+            "targetSets": 3,
+            "targetReps": "10",
+            "defaultRestSec": 90,
+            "category": "push",
+            "met": 4.8,
+            "durationSecPerSet": 45,
+            "notes": "Plant feet firmly. Control the eccentric descent."
+          },
+          {
+            "id": "tue-m-ohp",
+            "name": "Seated Dumbbell Overhead Press",
+            "targetSets": 3,
+            "targetReps": "10",
+            "defaultRestSec": 75,
+            "category": "push",
+            "met": 4.0,
+            "durationSecPerSet": 40,
+            "notes": "Seated to reduce spinal load. Neutral grip is joint-friendly."
+          },
+          {
+            "id": "tue-m-lateral-raise",
+            "name": "Dumbbell Lateral Raise",
+            "targetSets": 3,
+            "targetReps": "12",
+            "defaultRestSec": 60,
+            "category": "push",
+            "met": 3.5,
+            "durationSecPerSet": 35,
+            "notes": "Control the descent, no momentum swinging."
+          },
+          {
+            "id": "tue-m-tricep",
+            "name": "Tricep Dips (Bench) or DB Skull Crushers",
+            "targetSets": 3,
+            "targetReps": "10",
+            "defaultRestSec": 60,
+            "category": "push",
+            "met": 4.0,
+            "durationSecPerSet": 40,
+            "notes": "Choose whichever feels better on your shoulders."
+          },
+          {
+            "id": "tue-m-pushup",
+            "name": "Push-Ups",
+            "targetSets": 2,
+            "targetReps": "max reps",
+            "defaultRestSec": 60,
+            "category": "push",
+            "met": 4.0,
+            "durationSecPerSet": 40,
+            "notes": "Scale to knee push-ups if needed. Rigid body line."
+          },
+          {
+            "id": "tue-m-pallof",
+            "name": "Pallof Press (Cable or Band)",
+            "targetSets": 3,
+            "targetReps": "10 each side",
+            "defaultRestSec": 60,
+            "category": "core",
+            "met": 3.0,
+            "durationSecPerSet": 40,
+            "notes": "Anti-rotation — trains obliques for pelvic control during squats. Directly addresses rightward squat shift."
+          },
+          {
+            "id": "tue-m-deadbug",
+            "name": "Dead Bug",
+            "targetSets": 3,
+            "targetReps": "8 each side",
+            "defaultRestSec": 60,
+            "category": "core",
+            "met": 3.8,
+            "durationSecPerSet": 45,
+            "notes": "Transverse abdominis + coordination. Keep lower back pinned flat to ground."
+          },
+          {
+            "id": "tue-m-side-plank",
+            "name": "Side Plank (Both Sides)",
+            "targetSets": 3,
+            "targetReps": "15–30s hold per side",
+            "defaultRestSec": 45,
+            "category": "core",
+            "isTimeBased": true,
+            "met": 3.5,
+            "durationSecPerSet": 30,
+            "notes": "QL strengthening bilaterally. Build up duration progressively. Addresses QL weakness on both sides."
+          }
+        ]
+      },
+      "evening": {
+        "id": "tue-pm-light-stretch",
+        "title": "Light Stretching & Recovery",
+        "subtitle": "Recovery if feeling stiff, otherwise rest",
+        "location": "Home",
+        "durationEstimate": "10–15 min",
+        "exercises": [
+          {
+            "id": "tue-e-hip-flexor",
+            "name": "Half-Kneeling Hip Flexor Stretch",
+            "targetSets": 2,
+            "targetReps": "45s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.3,
+            "durationSecPerSet": 45,
+            "notes": "Maintain daily hip flexor stretching to preserve pinching improvement."
+          },
+          {
+            "id": "tue-e-ql-stretch",
+            "name": "Standing Lateral Flexion QL Stretch",
+            "targetSets": 2,
+            "targetReps": "30s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.0,
+            "durationSecPerSet": 30,
+            "notes": "Reach overhead and lean away from the tight side. Gentle."
+          },
+          {
+            "id": "tue-e-calf-stretch",
+            "name": "Wall Calf Stretch (Gastroc + Soleus)",
+            "targetSets": 2,
+            "targetReps": "30s hold per position per leg",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.0,
+            "durationSecPerSet": 30,
+            "notes": "Straight knee = gastroc. Bent knee = soleus. Both positions important for right ankle."
+          }
+        ]
+      }
+    },
+    {
+      "dayId": "wednesday",
+      "dayName": "Wednesday",
+      "shortName": "Wed",
+      "morning": {
+        "id": "wed-am-cardio-lowerleg",
+        "title": "Cardio + Dedicated Lower Leg & Ankle Session",
+        "subtitle": "Lower leg strengthening + proprioception + cardio",
+        "location": "Gym",
+        "durationEstimate": "50–60 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "wed-m-elliptical",
+            "name": "Elliptical",
+            "targetSets": 1,
+            "targetReps": "15–20 minutes",
+            "defaultRestSec": 0,
+            "category": "cardio",
+            "isTimeBased": true,
+            "met": 5.0,
+            "durationSecPerSet": 1200,
+            "notes": "Moderate intensity. Good for hip ROM without impact. Zone 2 effort."
+          },
+          {
+            "id": "wed-m-single-calf",
+            "name": "Single-Leg Calf Raise (Right Focus)",
+            "targetSets": 3,
+            "targetReps": "8–12 per leg",
+            "defaultRestSec": 60,
+            "category": "legs",
+            "rightHipFocus": true,
+            "met": 3.5,
+            "durationSecPerSet": 40,
+            "notes": "Use railing for balance. Build toward unassisted. Right leg likely weaker — match reps before progressing."
+          },
+          {
+            "id": "wed-m-seated-calf",
+            "name": "Seated Calf Raise",
+            "targetSets": 3,
+            "targetReps": "15",
+            "defaultRestSec": 60,
+            "category": "legs",
+            "met": 3.0,
+            "durationSecPerSet": 45,
+            "notes": "Soleus endurance. Slow tempo, full range."
+          },
+          {
+            "id": "wed-m-tib-raise",
+            "name": "Tibialis Anterior Raise",
+            "targetSets": 3,
+            "targetReps": "15",
+            "defaultRestSec": 45,
+            "category": "legs",
+            "met": 2.5,
+            "durationSecPerSet": 35,
+            "notes": "Controls foot during walking swing phase. Prevents foot slapping."
+          },
+          {
+            "id": "wed-m-banded-eversion",
+            "name": "Banded Peroneal Strengthening (Eversion)",
+            "targetSets": 3,
+            "targetReps": "12 per side",
+            "defaultRestSec": 45,
+            "category": "legs",
+            "rightHipFocus": true,
+            "met": 2.5,
+            "durationSecPerSet": 35,
+            "notes": "Targets lateral ankle stability. Key for right ankle wobble. Anchor band to fixed point, push foot outward."
+          },
+          {
+            "id": "wed-m-banded-inversion",
+            "name": "Banded Tibialis Posterior (Inversion, Plantarflexed)",
+            "targetSets": 3,
+            "targetReps": "12 per side",
+            "defaultRestSec": 45,
+            "category": "legs",
+            "rightHipFocus": true,
+            "met": 2.5,
+            "durationSecPerSet": 35,
+            "notes": "Targets arch support + medial ankle. Foot slightly pointed down, pull inward against band."
+          },
+          {
+            "id": "wed-m-balance",
+            "name": "Single-Leg Balance — Eyes Open",
+            "targetSets": 3,
+            "targetReps": "30s hold (right focus)",
+            "defaultRestSec": 30,
+            "category": "hip-rehab",
+            "isTimeBased": true,
+            "rightHipFocus": true,
+            "met": 2.5,
+            "durationSecPerSet": 30,
+            "notes": "Progress: eyes closed → foam pad → eyes closed on foam. Rebuilds right ankle proprioception."
+          },
+          {
+            "id": "wed-m-heel-toe-walks",
+            "name": "Heel Walks + Toe Walks",
+            "targetSets": 2,
+            "targetReps": "20 metres each",
+            "defaultRestSec": 30,
+            "category": "legs",
+            "met": 3.0,
+            "durationSecPerSet": 40,
+            "notes": "Heel walks = tibialis anterior. Toe walks = calf. Functional lower leg activation."
+          },
+          {
+            "id": "wed-m-treadmill-incline",
+            "name": "Treadmill Incline Walk",
+            "targetSets": 1,
+            "targetReps": "10 minutes",
+            "defaultRestSec": 0,
+            "category": "cardio",
+            "isTimeBased": true,
+            "met": 4.5,
+            "durationSecPerSet": 600,
+            "notes": "Incline loads calves and glutes more. Focus on push-off from right foot."
+          }
+        ]
+      },
+      "evening": {
+        "id": "wed-pm-hip-rotation-pelvic",
+        "title": "Hip Rotation Drills & Pelvic Control",
+        "subtitle": "Rotation restoration + pelvic awareness",
+        "location": "Home",
+        "durationEstimate": "20–25 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "wed-e-hip-flexor",
+            "name": "Half-Kneeling Hip Flexor Stretch",
+            "targetSets": 2,
+            "targetReps": "45s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.3,
+            "durationSecPerSet": 45,
+            "notes": "Daily maintenance. Posterior pelvic tilt throughout."
+          },
+          {
+            "id": "wed-e-9090",
+            "name": "90/90 Hip Switches (Gentle)",
+            "targetSets": 2,
+            "targetReps": "6 each way",
+            "defaultRestSec": 30,
+            "category": "mobility",
+            "rightHipFocus": true,
+            "met": 2.5,
+            "durationSecPerSet": 50,
+            "notes": "Combined hip IR + ER drill. Go to comfortable range only — do not force. Track range improvement weekly."
+          },
+          {
+            "id": "wed-e-adductor",
+            "name": "Supine Adductor Stretch (Butterfly or Frog)",
+            "targetSets": 2,
+            "targetReps": "30s hold",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.0,
+            "durationSecPerSet": 30,
+            "notes": "Works toward cross-legged sitting. Let gravity do the work — no forcing."
+          },
+          {
+            "id": "wed-e-pelvic-tilt",
+            "name": "Supine Pelvic Tilts",
+            "targetSets": 2,
+            "targetReps": "12",
+            "defaultRestSec": 30,
+            "category": "core",
+            "met": 2.5,
+            "durationSecPerSet": 40,
+            "notes": "Anterior/posterior tilting. Builds pelvic awareness and control. Foundation for squat symmetry."
+          },
+          {
+            "id": "wed-e-ql-stretch",
+            "name": "Side-Lying QL Stretch (Right Side Up)",
+            "targetSets": 2,
+            "targetReps": "30s hold",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.0,
+            "durationSecPerSet": 30,
+            "notes": "Lengthen right QL. Breathe into the stretch."
+          },
+          {
+            "id": "wed-e-ankle-mob",
+            "name": "Ankle Dorsiflexion Mobilization (Knee to Wall)",
+            "targetSets": 2,
+            "targetReps": "10 per side",
+            "defaultRestSec": 30,
+            "category": "mobility",
+            "rightHipFocus": true,
+            "met": 2.0,
+            "durationSecPerSet": 40,
+            "notes": "Improves ankle ROM. Measure distance from wall in cm for progress tracking. Tight ankles contribute to wobble."
+          }
+        ]
+      }
+    },
+    {
+      "dayId": "thursday",
+      "dayName": "Thursday",
+      "shortName": "Thu",
+      "morning": {
+        "id": "thu-am-upper-pull-core",
+        "title": "Upper Body Pull + Core",
+        "subtitle": "Back, biceps + functional carries for QL",
+        "location": "Gym",
+        "durationEstimate": "50–60 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "thu-m-row",
+            "name": "Dumbbell Bent-Over Row",
+            "targetSets": 3,
+            "targetReps": "10",
+            "defaultRestSec": 90,
+            "category": "pull",
+            "met": 4.5,
+            "durationSecPerSet": 45,
+            "notes": "Chest-supported variation if lower back is fatigued."
+          },
+          {
+            "id": "thu-m-lat-pulldown",
+            "name": "Lat Pulldown",
+            "targetSets": 3,
+            "targetReps": "10–12",
+            "defaultRestSec": 75,
+            "category": "pull",
+            "met": 4.2,
+            "durationSecPerSet": 40,
+            "notes": "Pull to collarbone, squeeze shoulder blades."
+          },
+          {
+            "id": "thu-m-face-pull",
+            "name": "Face Pulls (Cable or Band)",
+            "targetSets": 3,
+            "targetReps": "15",
+            "defaultRestSec": 60,
+            "category": "pull",
+            "met": 3.5,
+            "durationSecPerSet": 35,
+            "notes": "Rear delts + lower traps. Pull to face level, externally rotate at end."
+          },
+          {
+            "id": "thu-m-bicep-curl",
+            "name": "Dumbbell Bicep Curls",
+            "targetSets": 3,
+            "targetReps": "12",
+            "defaultRestSec": 60,
+            "category": "pull",
+            "met": 3.5,
+            "durationSecPerSet": 35,
+            "notes": "Standing or seated. No momentum."
+          },
+          {
+            "id": "thu-m-shrug",
+            "name": "Dumbbell Shrugs",
+            "targetSets": 3,
+            "targetReps": "12",
+            "defaultRestSec": 60,
+            "category": "pull",
+            "met": 3.5,
+            "durationSecPerSet": 30,
+            "notes": "Hold at top 1–2 sec. Upper trap strength."
+          },
+          {
+            "id": "thu-m-farmer-walk",
+            "name": "Farmer's Walk (Dumbbells)",
+            "targetSets": 3,
+            "targetReps": "30 metres",
+            "defaultRestSec": 60,
+            "category": "core",
+            "met": 4.5,
+            "durationSecPerSet": 40,
+            "notes": "Core + grip + upright posture. Walk tall, level pelvis."
+          },
+          {
+            "id": "thu-m-suitcase-carry",
+            "name": "Suitcase Carry (One DB, Each Side)",
+            "targetSets": 3,
+            "targetReps": "20 metres each side",
+            "defaultRestSec": 60,
+            "category": "core",
+            "met": 4.5,
+            "durationSecPerSet": 35,
+            "notes": "QL strengthening through anti-lateral-flexion. Zero side-leaning. Addresses QL weakness bilaterally."
+          },
+          {
+            "id": "thu-m-bird-dog",
+            "name": "Bird-Dog",
+            "targetSets": 3,
+            "targetReps": "8 each side",
+            "defaultRestSec": 60,
+            "category": "core",
+            "met": 3.0,
+            "durationSecPerSet": 40,
+            "notes": "Core stability + glute activation. Keep hips square to ground."
+          }
+        ]
+      },
+      "evening": {
+        "id": "thu-pm-light-stretch",
+        "title": "Light Stretching & Recovery",
+        "subtitle": "Upper body mobility + hip maintenance",
+        "location": "Home",
+        "durationEstimate": "10–15 min",
+        "exercises": [
+          {
+            "id": "thu-e-hip-flexor",
+            "name": "Half-Kneeling Hip Flexor Stretch",
+            "targetSets": 2,
+            "targetReps": "45s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.3,
+            "durationSecPerSet": 45,
+            "notes": "Daily maintenance stretch."
+          },
+          {
+            "id": "thu-e-trap-stretch",
+            "name": "Seated Upper Trap Stretch",
+            "targetSets": 2,
+            "targetReps": "30s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.0,
+            "durationSecPerSet": 30,
+            "notes": "Gentle guidance, keep shoulders relaxed down."
+          },
+          {
+            "id": "thu-e-doorway-pec",
+            "name": "Doorway Pec Stretch",
+            "targetSets": 2,
+            "targetReps": "30s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.0,
+            "durationSecPerSet": 30,
+            "notes": "Gentle chest opening after pull day. Breathe deeply."
+          }
+        ]
+      }
+    },
+    {
+      "dayId": "friday",
+      "dayName": "Friday",
+      "shortName": "Fri",
+      "morning": {
+        "id": "fri-am-lower-squat",
+        "title": "Lower Body Strength — Squat Focus",
+        "subtitle": "Squat symmetry + glutes + lower leg",
+        "location": "Gym",
+        "durationEstimate": "55–65 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "fri-m-goblet-squat",
+            "name": "Goblet Squat (Depth Focus)",
+            "targetSets": 3,
+            "targetReps": "10",
+            "defaultRestSec": 90,
+            "category": "legs",
+            "rightHipFocus": true,
+            "met": 5.5,
+            "durationSecPerSet": 50,
+            "notes": "Film yourself from front. Watch for rightward shift. Increase depth gradually as symmetry improves."
+          },
+          {
+            "id": "fri-m-split-squat",
+            "name": "Dumbbell Split Squat",
+            "targetSets": 3,
+            "targetReps": "8 each leg",
+            "defaultRestSec": 75,
+            "category": "legs",
+            "rightHipFocus": true,
+            "met": 5.0,
+            "durationSecPerSet": 50,
+            "notes": "Right leg forward — builds single-leg symmetry. Control descent, no forward knee drift."
+          },
+          {
+            "id": "fri-m-leg-press",
+            "name": "Leg Press (Moderate Depth)",
+            "targetSets": 3,
+            "targetReps": "10",
+            "defaultRestSec": 90,
+            "category": "legs",
+            "rightHipFocus": true,
+            "met": 5.5,
+            "durationSecPerSet": 45,
+            "notes": "Controlled. Stop before pinch. Keep hips and lower back flat against backrest."
+          },
+          {
+            "id": "fri-m-clamshell",
+            "name": "Banded Clamshells (Side-Lying)",
+            "targetSets": 3,
+            "targetReps": "15 each side",
+            "defaultRestSec": 60,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3.0,
+            "durationSecPerSet": 40,
+            "notes": "Heavier band than warm-up. Glute med focus. Pelvis stays perpendicular to floor."
+          },
+          {
+            "id": "fri-m-adductor-squeeze",
+            "name": "Adductor Squeeze (Ball Between Knees, Supine)",
+            "targetSets": 3,
+            "targetReps": "10 (5-sec hold each)",
+            "defaultRestSec": 60,
+            "category": "legs",
+            "met": 3.0,
+            "durationSecPerSet": 55,
+            "notes": "Inner thigh strength — needed for cross-legged sitting goal."
+          },
+          {
+            "id": "fri-m-standing-calf",
+            "name": "Standing Calf Raise (Single Leg Progression)",
+            "targetSets": 3,
+            "targetReps": "10 per leg",
+            "defaultRestSec": 60,
+            "category": "legs",
+            "rightHipFocus": true,
+            "met": 3.5,
+            "durationSecPerSet": 40,
+            "notes": "Full range. Right leg may need railing support initially."
+          },
+          {
+            "id": "fri-m-tib-raise",
+            "name": "Tibialis Anterior Raise",
+            "targetSets": 3,
+            "targetReps": "15",
+            "defaultRestSec": 45,
+            "category": "legs",
+            "met": 2.5,
+            "durationSecPerSet": 35,
+            "notes": "Consistent lower leg work. Slow eccentric."
+          },
+          {
+            "id": "fri-m-treadmill",
+            "name": "Treadmill Walk",
+            "targetSets": 1,
+            "targetReps": "10 minutes",
+            "defaultRestSec": 0,
+            "category": "cardio",
+            "isTimeBased": true,
+            "met": 3.5,
+            "durationSecPerSet": 600,
+            "notes": "Even gait, focus on push-off from right foot."
+          }
+        ]
+      },
+      "evening": {
+        "id": "fri-pm-mobility-ankle",
+        "title": "Hip Mobility & Lower Leg Stability",
+        "subtitle": "Same as Monday evening — mobility + ankle work",
+        "location": "Home",
+        "durationEstimate": "25–30 min",
+        "exercises": [
+          {
+            "id": "fri-e-hip-flexor",
+            "name": "Half-Kneeling Hip Flexor Stretch",
+            "targetSets": 2,
+            "targetReps": "45s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.3,
+            "durationSecPerSet": 45,
+            "notes": "Maintain daily. Posterior pelvic tilt throughout."
+          },
+          {
+            "id": "fri-e-hip-rotation",
+            "name": "Supine Hip IR/ER Rotation (Feet on Wall)",
+            "targetSets": 2,
+            "targetReps": "10 each direction per leg",
+            "defaultRestSec": 30,
+            "category": "mobility",
+            "rightHipFocus": true,
+            "met": 2.0,
+            "durationSecPerSet": 50,
+            "notes": "Gentle. Stop before pain. Compare side to side."
+          },
+          {
+            "id": "fri-e-figure4",
+            "name": "Figure-4 Stretch (Supine)",
+            "targetSets": 2,
+            "targetReps": "30s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "rightHipFocus": true,
+            "met": 2.3,
+            "durationSecPerSet": 30,
+            "notes": "Cross-legged sitting progression. Gentle on right side."
+          },
+          {
+            "id": "fri-e-ql-stretch",
+            "name": "Side-Lying QL Stretch (Right Side Up)",
+            "targetSets": 2,
+            "targetReps": "30s hold",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.0,
+            "durationSecPerSet": 30,
+            "notes": "Lengthen right QL."
+          },
+          {
+            "id": "fri-e-single-leg-balance",
+            "name": "Single-Leg Balance (Right Foot)",
+            "targetSets": 3,
+            "targetReps": "20–30s hold",
+            "defaultRestSec": 30,
+            "category": "hip-rehab",
+            "isTimeBased": true,
+            "rightHipFocus": true,
+            "met": 2.5,
+            "durationSecPerSet": 30,
+            "notes": "Progress from Monday. Try next difficulty level if stable."
+          },
+          {
+            "id": "fri-e-banded-ankle",
+            "name": "Banded Ankle Eversion & Inversion",
+            "targetSets": 2,
+            "targetReps": "15 each direction per foot",
+            "defaultRestSec": 30,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 2.0,
+            "durationSecPerSet": 40,
+            "notes": "Peroneal + tibialis posterior work for right ankle stability."
+          },
+          {
+            "id": "fri-e-toe-scrunch",
+            "name": "Towel Toe Scrunches",
+            "targetSets": 2,
+            "targetReps": "15 per foot",
+            "defaultRestSec": 30,
+            "category": "hip-rehab",
+            "met": 1.5,
+            "durationSecPerSet": 30,
+            "notes": "Foot intrinsics. Consistent practice builds arch stability."
+          }
+        ]
+      }
+    },
+    {
+      "dayId": "saturday",
+      "dayName": "Saturday",
+      "shortName": "Sat",
+      "morning": {
+        "id": "sat-am-fullbody-light",
+        "title": "Full-Body Light / Active Recovery + Cardio",
+        "subtitle": "Technique, functional carries, light cardio",
+        "location": "Gym",
+        "durationEstimate": "40–50 min",
+        "hasWarmup": true,
+        "exercises": [
+          {
+            "id": "sat-m-elliptical",
+            "name": "Elliptical or Treadmill Walk",
+            "targetSets": 1,
+            "targetReps": "20 minutes",
+            "defaultRestSec": 0,
+            "category": "cardio",
+            "isTimeBased": true,
+            "met": 4.5,
+            "durationSecPerSet": 1200,
+            "notes": "Comfortable Zone 2 pace. Mix treadmill and elliptical if desired."
+          },
+          {
+            "id": "sat-m-suitcase-carry",
+            "name": "Suitcase Dumbbell Carry",
+            "targetSets": 3,
+            "targetReps": "30 seconds each side",
+            "defaultRestSec": 60,
+            "category": "core",
+            "isTimeBased": true,
+            "met": 4.5,
+            "durationSecPerSet": 30,
+            "notes": "Walk tall; zero side-leaning. QL + oblique anti-lateral-flexion."
+          },
+          {
+            "id": "sat-m-pushup",
+            "name": "Incline or Standard Push-Up",
+            "targetSets": 3,
+            "targetReps": "10–12",
+            "defaultRestSec": 60,
+            "category": "push",
+            "met": 4.0,
+            "durationSecPerSet": 35,
+            "notes": "Rigid body line. Light upper-body stimulus."
+          },
+          {
+            "id": "sat-m-row",
+            "name": "Chest-Supported Row (Light)",
+            "targetSets": 2,
+            "targetReps": "12",
+            "defaultRestSec": 60,
+            "category": "pull",
+            "met": 4.0,
+            "durationSecPerSet": 40,
+            "notes": "Light weight, flawless mechanics."
+          },
+          {
+            "id": "sat-m-hip-abduction",
+            "name": "Standing Hip Abduction (Bodyweight or Light Band)",
+            "targetSets": 2,
+            "targetReps": "10 each leg",
+            "defaultRestSec": 60,
+            "category": "hip-rehab",
+            "rightHipFocus": true,
+            "met": 3.0,
+            "durationSecPerSet": 40,
+            "notes": "Technique focus. Level pelvis, no hiking."
+          },
+          {
+            "id": "sat-m-heel-toe-walks",
+            "name": "Heel Walks + Toe Walks",
+            "targetSets": 2,
+            "targetReps": "20 metres each",
+            "defaultRestSec": 30,
+            "category": "legs",
+            "met": 3.0,
+            "durationSecPerSet": 40,
+            "notes": "Lower leg maintenance. Light and functional."
+          },
+          {
+            "id": "sat-m-pallof",
+            "name": "Pallof Press",
+            "targetSets": 2,
+            "targetReps": "10 each side",
+            "defaultRestSec": 60,
+            "category": "core",
+            "met": 3.0,
+            "durationSecPerSet": 35,
+            "notes": "Anti-rotation core brace. Light."
+          }
+        ]
+      },
+      "evening": {
+        "id": "sat-pm-relax",
+        "title": "Full-Body Relaxation & Gentle Mobility",
+        "subtitle": "Passive recovery",
+        "location": "Home",
+        "durationEstimate": "15 min",
+        "exercises": [
+          {
+            "id": "sat-e-hip-flexor",
+            "name": "Half-Kneeling Hip Flexor Stretch",
+            "targetSets": 2,
+            "targetReps": "45s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.3,
+            "durationSecPerSet": 45,
+            "notes": "Daily maintenance."
+          },
+          {
+            "id": "sat-e-full-body-stretch",
+            "name": "General Full-Body Stretching",
+            "targetSets": 1,
+            "targetReps": "10 minutes",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.3,
+            "durationSecPerSet": 600,
+            "notes": "Calves, hamstrings, QL, hip rotators, chest. Whatever feels tight. Relaxed breathing."
+          },
+          {
+            "id": "sat-e-legs-up-wall",
+            "name": "Legs-Up-The-Wall Rest",
+            "targetSets": 1,
+            "targetReps": "5 minutes",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 1.5,
+            "durationSecPerSet": 300,
+            "notes": "Venous blood flow and nervous system recovery."
+          }
+        ]
+      }
+    },
+    {
+      "dayId": "sunday",
+      "dayName": "Sunday",
+      "shortName": "Sun",
+      "morning": {
+        "id": "sun-am-rest",
+        "title": "Rest & Outdoor Walk",
+        "subtitle": "Active recovery only",
+        "location": "Home",
+        "durationEstimate": "30–45 min",
+        "exercises": [
+          {
+            "id": "sun-m-walk",
+            "name": "Casual Walk (Outdoors if Possible)",
+            "targetSets": 1,
+            "targetReps": "30 minutes easy walking",
+            "defaultRestSec": 0,
+            "category": "cardio",
+            "isTimeBased": true,
+            "met": 3.3,
+            "durationSecPerSet": 1800,
+            "notes": "Promotes circulation and joint recovery. Focus on even gait and right foot push-off."
+          }
+        ]
+      },
+      "evening": {
+        "id": "sun-pm-reset",
+        "title": "Weekly Reset & Deep Breathing",
+        "subtitle": "Preparation for new training week",
+        "location": "Home",
+        "durationEstimate": "15 min",
+        "exercises": [
+          {
+            "id": "sun-e-hip-flexor",
+            "name": "Half-Kneeling Hip Flexor Stretch",
+            "targetSets": 2,
+            "targetReps": "45s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.3,
+            "durationSecPerSet": 45,
+            "notes": "Daily maintenance — even on rest day."
+          },
+          {
+            "id": "sun-e-ql-stretch",
+            "name": "Standing QL Stretch",
+            "targetSets": 2,
+            "targetReps": "30s hold per side",
+            "defaultRestSec": 15,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.0,
+            "durationSecPerSet": 30,
+            "notes": "Gentle right side lengthening."
+          },
+          {
+            "id": "sun-e-breathing",
+            "name": "Diaphragmatic Box Breathing",
+            "targetSets": 1,
+            "targetReps": "5 minutes (4s in, 4s hold, 4s out, 4s hold)",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 1.3,
+            "durationSecPerSet": 300,
+            "notes": "Calms the central nervous system. Prepares for new training week."
+          }
+        ]
+      }
+    }
+  ]
+}
