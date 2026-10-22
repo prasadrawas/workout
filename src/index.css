@@ -1136,23 +1136,6 @@ h1, h2, h3, h4, .font-display {
 }
 
 /* EXERCISE ACTIONS: REST TIMER TRIGGER & PINCH SELECTOR */
-.exercise-bottom-bar {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid var(--border);
-}
-
-@media (min-width: 640px) {
-  .exercise-bottom-bar {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
 .btn-rest-timer {
   display: inline-flex;
   align-items: center;
@@ -1180,83 +1163,6 @@ h1, h2, h3, h4, .font-display {
 
 .btn-rest-timer:active {
   transform: scale(0.96);
-}
-
-/* PINCH STATUS SELECTOR */
-.pinch-selector {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
-  width: 100%;
-}
-
-@media (min-width: 640px) {
-  .pinch-selector {
-    display: flex;
-    width: auto;
-  }
-}
-
-.pinch-chip {
-  font-size: 0.68rem;
-  font-weight: 600;
-  padding: 6px 2px;
-  min-height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-xs);
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: var(--transition-fast);
-  text-align: center;
-  white-space: nowrap;
-}
-
-@media (min-width: 640px) {
-  .pinch-chip {
-    flex: 1;
-    font-size: 0.72rem;
-    padding: 6px 8px;
-    min-height: 36px;
-    border-radius: var(--radius-sm);
-  }
-}
-
-.pinch-chip:hover {
-  border-color: var(--border-hover);
-  color: var(--text);
-}
-
-.pinch-chip:active {
-  transform: scale(0.96);
-}
-
-.pinch-chip.active.none {
-  background: var(--success-glow);
-  border-color: var(--success);
-  color: #4ade80;
-}
-
-.pinch-chip.active.mild {
-  background: var(--amber-glow);
-  border-color: var(--amber);
-  color: var(--amber);
-}
-
-.pinch-chip.active.pinch {
-  background: var(--rose-glow);
-  border-color: var(--rose);
-  color: #fca5a5;
-  animation: pulse-border 1.5s infinite;
-}
-
-@keyframes pulse-border {
-  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
-  70% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
 }
 
 /* ========================================================

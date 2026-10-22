@@ -1,7 +1,7 @@
 import type { FC } from 'react';
-import { Shield, Timer, Check, Plus, Minus, AlertTriangle, Flame } from 'lucide-react';
+import { Shield, Timer, Check, Plus, Minus, Flame } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import type { Exercise, PinchStatus, SetLog } from '../types/workout';
+import type { Exercise, SetLog } from '../types/workout';
 import { playSetCompletePop } from '../utils/audio';
 import { getExerciseCalories } from '../utils/calories';
 
@@ -29,12 +29,6 @@ export const ExerciseCard: FC<ExerciseCardProps> = ({
 
   // Calorie calculations based on Compendium MET formula
   const { burnedKcal, totalKcal, met } = getExerciseCalories(exercise, completedSetsCount, userWeightKg);
-
-  // Exercise pinch status is the most severe among sets, or current set's pinch
-  const currentPinchStatus: PinchStatus = sets.find(s => s.pinchStatus === 'pinch')?.pinchStatus
-    || sets.find(s => s.pinchStatus === 'mild')?.pinchStatus
-    || sets[0]?.pinchStatus
-    || 'none';
 
   const handleToggleSet = (index: number) => {
     const set = sets[index];
@@ -73,13 +67,6 @@ export const ExerciseCard: FC<ExerciseCardProps> = ({
     const currentVal = parseInt(sets[index].reps) || 0;
     const nextVal = Math.max(0, currentVal + delta);
     onUpdateSet(index, { reps: nextVal === 0 ? '' : nextVal.toString() });
-  };
-
-  const handlePinchChange = (status: PinchStatus) => {
-    // Update all sets for this exercise to reflect current sensation
-    sets.forEach((_, idx) => {
-      onUpdateSet(idx, { pinchStatus: status });
-    });
   };
 
   return (
@@ -212,57 +199,6 @@ export const ExerciseCard: FC<ExerciseCardProps> = ({
           </div>
         ))}
       </div>
-
-      {/* Hip Pinch & Sensation Monitor for this exercise */}
-      <div className="exercise-bottom-bar">
-        <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
-          Right Hip Sensation:
-        </span>
-
-        <div className="pinch-selector">
-          <button
-            type="button"
-            className={`pinch-chip ${currentPinchStatus === 'none' ? 'active none' : ''}`}
-            onClick={() => handlePinchChange('none')}
-          >
-            🟢 Pain-Free
-          </button>
-          <button
-            type="button"
-            className={`pinch-chip ${currentPinchStatus === 'mild' ? 'active mild' : ''}`}
-            onClick={() => handlePinchChange('mild')}
-          >
-            🟡 Mild Tension
-          </button>
-          <button
-            type="button"
-            className={`pinch-chip ${currentPinchStatus === 'pinch' ? 'active pinch' : ''}`}
-            onClick={() => handlePinchChange('pinch')}
-          >
-            🔴 Front Pinch ⚠️
-          </button>
-        </div>
-      </div>
-
-      {currentPinchStatus === 'pinch' && (
-        <div style={{
-          marginTop: '10px',
-          padding: '8px 12px',
-          background: 'rgba(244, 63, 94, 0.12)',
-          border: '1px solid rgba(244, 63, 94, 0.3)',
-          borderRadius: 'var(--radius-sm)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          fontSize: '0.78rem',
-          color: '#fecdd3'
-        }}>
-          <AlertTriangle size={16} color="var(--rose)" style={{ flexShrink: 0 }} />
-          <span>
-            <strong>THR Warning:</strong> Do not push through front hip pinch. Reduce your range of motion or stop this exercise immediately.
-          </span>
-        </div>
-      )}
     </div>
   );
 };
