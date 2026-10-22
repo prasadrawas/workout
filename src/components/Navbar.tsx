@@ -115,17 +115,49 @@ export const Navbar: FC<NavbarProps> = ({
     <>
       <header className="navbar">
         <div className="navbar-inner">
-          <div className="brand" onClick={() => onSelectDay(today)}>
-            <div className="brand-icon-wrap" title="Workout">
-              <Dumbbell size={22} strokeWidth={2.4} />
+          <div className="navbar-top-row">
+            <div className="brand" onClick={() => onSelectDay(today)}>
+              <div className="brand-icon-wrap" title="Workout">
+                <Dumbbell size={20} strokeWidth={2.4} />
+              </div>
+              <div className="brand-text">
+                <span className="brand-title">Workout</span>
+                <span className="brand-subtitle">By Prasad Rawas</span>
+              </div>
             </div>
-            <div>
-              <span className="brand-title">Workout</span>
-              <span className="brand-subtitle">By Prasad Rawas</span>
+
+            <div className="nav-quick-actions">
+              {/* Body Weight for Calorie Calculation & Weight History */}
+              <button
+                className="btn-weight-pill font-display"
+                title="Log Body Weight & View Weight History"
+                onClick={handleOpenWeight}
+              >
+                <Scale size={13} color="var(--accent-light)" />
+                <span>{displayWeight} {unit}</span>
+              </button>
+
+              {/* THR Safety & 12-Week Progression Guide */}
+              <button
+                className="btn-icon btn-icon-compact"
+                title="THR Recovery & Progression Rules"
+                onClick={onOpenSafetyGuide}
+              >
+                <ShieldAlert size={17} />
+              </button>
+
+              {/* History & Data Backup */}
+              <button
+                className="btn-icon btn-icon-compact"
+                title="History, Trends & Backup"
+                onClick={onOpenHistory}
+              >
+                <History size={17} />
+              </button>
             </div>
           </div>
 
-          <div className="nav-actions">
+          <div className="navbar-sub-row">
             {/* Active Workout Plan Switcher Dropdown */}
             <div className="plan-switcher-container" ref={planDropdownRef}>
               <button
@@ -138,120 +170,101 @@ export const Navbar: FC<NavbarProps> = ({
                 <ChevronDown size={12} className={`plan-switcher-chevron ${planDropdownOpen ? 'rotate' : ''}`} />
               </button>
 
-              {/* Dropdown Menu */}
+              {/* Dropdown Menu (on mobile renders as fixed bottom sheet / modal) */}
               {planDropdownOpen && (
-                <div className="plan-dropdown-menu">
-                  <div className="plan-dropdown-header">
-                    <span>Available Workout Plans</span>
+                <>
+                  <div className="plan-dropdown-backdrop" onClick={() => setPlanDropdownOpen(false)} />
+                  <div className="plan-dropdown-menu">
+                    <div className="plan-dropdown-header">
+                      <div className="plan-dropdown-title-wrap">
+                        <Layers size={14} color="var(--accent-light)" />
+                        <span className="plan-dropdown-title">Select Workout Routine</span>
+                      </div>
+                      <span className="plan-dropdown-count">{plans.length} available</span>
+                    </div>
+
+                    <div className="plan-dropdown-list">
+                      {plans.map((p) => {
+                        const isActive = p.id === activePlanId;
+                        return (
+                          <button
+                            key={p.id}
+                            className={`plan-dropdown-item ${isActive ? 'selected' : ''}`}
+                            onClick={() => {
+                              onSelectPlan(p.id);
+                              setPlanDropdownOpen(false);
+                            }}
+                          >
+                            <div className="plan-item-info">
+                              <span className="plan-item-title">{p.name}</span>
+                              {p.focusTag && <span className="plan-item-tag">{p.focusTag}</span>}
+                            </div>
+                            {isActive && <Check size={16} color="var(--accent-light)" />}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    <div className="plan-dropdown-divider" />
+
+                    <div className="plan-dropdown-footer">
+                      <button
+                        className="dropdown-footer-btn"
+                        onClick={() => {
+                          setPlanDropdownOpen(false);
+                          onOpenPlanManager();
+                        }}
+                      >
+                        <Settings2 size={14} />
+                        <span>Manage & Edit Plans</span>
+                      </button>
+
+                      <button
+                        className="dropdown-footer-btn highlight"
+                        onClick={handleDownloadTemplate}
+                        title="Download plan.example.json template"
+                      >
+                        <Download size={14} />
+                        <span>Download .example Template</span>
+                      </button>
+                    </div>
                   </div>
-
-                  <div className="plan-dropdown-list">
-                    {plans.map((p) => {
-                      const isActive = p.id === activePlanId;
-                      return (
-                        <button
-                          key={p.id}
-                          className={`plan-dropdown-item ${isActive ? 'selected' : ''}`}
-                          onClick={() => {
-                            onSelectPlan(p.id);
-                            setPlanDropdownOpen(false);
-                          }}
-                        >
-                          <div className="plan-item-info">
-                            <span className="plan-item-title">{p.name}</span>
-                            {p.focusTag && <span className="plan-item-tag">{p.focusTag}</span>}
-                          </div>
-                          {isActive && <Check size={14} color="var(--accent-light)" />}
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  <div className="plan-dropdown-divider" />
-
-                  <div className="plan-dropdown-footer">
-                    <button
-                      className="dropdown-footer-btn"
-                      onClick={() => {
-                        setPlanDropdownOpen(false);
-                        onOpenPlanManager();
-                      }}
-                    >
-                      <Settings2 size={14} />
-                      <span>Manage & Edit Plans</span>
-                    </button>
-
-                    <button
-                      className="dropdown-footer-btn highlight"
-                      onClick={handleDownloadTemplate}
-                      title="Download plan.example.json template"
-                    >
-                      <Download size={14} />
-                      <span>Download .example Template</span>
-                    </button>
-                  </div>
-                </div>
+                </>
               )}
             </div>
 
-            {/* Jump to Today Button if viewing other day */}
-            {!isViewingToday && (
+            <div className="nav-secondary-actions">
+              {/* Jump to Today Button if viewing other day */}
+              {!isViewingToday && (
+                <button
+                  className="btn-today-pill"
+                  title="Jump to Today's Workout"
+                  onClick={() => onSelectDay(today)}
+                >
+                  <Calendar size={13} />
+                  <span>Today</span>
+                </button>
+              )}
+
+              {/* Unit Toggle */}
               <button
-                className="btn-icon"
-                title="Jump to Today's Workout"
-                onClick={() => onSelectDay(today)}
+                className="btn-icon btn-icon-compact font-display"
+                style={{ fontWeight: 700, fontSize: '0.78rem' }}
+                title={`Switch to ${unit === 'kg' ? 'lbs' : 'kg'}`}
+                onClick={onToggleUnit}
               >
-                <Calendar size={18} />
+                {unit.toUpperCase()}
               </button>
-            )}
 
-            {/* Body Weight for Calorie Calculation & Weight History */}
-            <button
-              className="btn-icon font-display"
-              style={{ width: 'auto', padding: '0 10px', fontSize: '0.78rem', gap: 4 }}
-              title="Log Body Weight & View Weight History"
-              onClick={handleOpenWeight}
-            >
-              <Scale size={14} color="var(--primary-light)" />
-              <span>{displayWeight} {unit}</span>
-            </button>
-
-            {/* Unit Toggle */}
-            <button
-              className="btn-icon font-display"
-              style={{ fontWeight: 700, fontSize: '0.8rem' }}
-              title={`Switch to ${unit === 'kg' ? 'lbs' : 'kg'}`}
-              onClick={onToggleUnit}
-            >
-              {unit.toUpperCase()}
-            </button>
-
-            {/* Sound Toggle */}
-            <button
-              className={`btn-icon ${soundEnabled ? 'active' : ''}`}
-              title={soundEnabled ? 'Mute Timer Sounds' : 'Unmute Timer Sounds'}
-              onClick={onToggleSound}
-            >
-              {soundEnabled ? <Volume2 size={18} /> : <VolumeX size={18} />}
-            </button>
-
-            {/* THR Safety & 12-Week Progression Guide */}
-            <button
-              className="btn-icon"
-              title="THR Recovery & Progression Rules"
-              onClick={onOpenSafetyGuide}
-            >
-              <ShieldAlert size={18} />
-            </button>
-
-            {/* History & Data Backup */}
-            <button
-              className="btn-icon"
-              title="History, Trends & Backup"
-              onClick={onOpenHistory}
-            >
-              <History size={18} />
-            </button>
+              {/* Sound Toggle */}
+              <button
+                className={`btn-icon btn-icon-compact ${soundEnabled ? 'active' : ''}`}
+                title={soundEnabled ? 'Mute Timer Sounds' : 'Unmute Timer Sounds'}
+                onClick={onToggleSound}
+              >
+                {soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
+              </button>
+            </div>
           </div>
         </div>
       </header>

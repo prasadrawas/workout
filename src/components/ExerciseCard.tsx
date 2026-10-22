@@ -104,18 +104,23 @@ export const ExerciseCard: FC<ExerciseCardProps> = ({
           </div>
 
           <h3 className="exercise-name">{exercise.name}</h3>
-          <div className="exercise-target">Target: {exercise.targetSets} × {exercise.targetReps}</div>
+          
+          <div className="exercise-target-row">
+            <div className="exercise-target">Target: {exercise.targetSets} × {exercise.targetReps}</div>
+            
+            {exercise.defaultRestSec > 0 && (
+              <button
+                type="button"
+                className="btn-rest-timer"
+                title={`Start ${exercise.defaultRestSec}s rest countdown`}
+                onClick={() => onStartRestTimer(exercise.name, exercise.defaultRestSec)}
+              >
+                <Timer size={13} />
+                <span>{exercise.defaultRestSec}s Rest</span>
+              </button>
+            )}
+          </div>
         </div>
-
-        <button
-          type="button"
-          className="btn-rest-timer"
-          title={`Start ${exercise.defaultRestSec}s rest countdown`}
-          onClick={() => onStartRestTimer(exercise.name, exercise.defaultRestSec)}
-        >
-          <Timer size={14} />
-          <span>{exercise.defaultRestSec}s Rest</span>
-        </button>
       </div>
 
       {exercise.notes && (
