@@ -17,7 +17,7 @@ import {
   saveWeekProgress,
   saveWorkoutPlans
 } from './utils/storage';
-import { playCountdownTick, playRestCompleteChime } from './utils/audio';
+import { playCountdownTick, playRestCompleteChime, speakText } from './utils/audio';
 import { calculateSessionCalories } from './utils/calories';
 import { Navbar } from './components/Navbar';
 import { DaySelector } from './components/DaySelector';
@@ -79,6 +79,13 @@ export function App() {
         setTimeLeft((prev) => {
           if (prev <= 1) {
             playRestCompleteChime(progress.soundEnabled);
+            speakText(
+              timerExerciseName
+                ? `Rest over! Start your next set of ${timerExerciseName}.`
+                : 'Rest over! Start your next set.',
+              progress.soundEnabled
+            );
+            setTimerModalOpen(false);
             setTimerRunning(false);
             return 0;
           }
@@ -92,7 +99,7 @@ export function App() {
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [timerRunning, timeLeft, progress.soundEnabled]);
+  }, [timerRunning, timeLeft, progress.soundEnabled, timerExerciseName]);
 
   // Handle Switching Active Plan
   const handleSelectPlan = (newPlanId: string) => {
