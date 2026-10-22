@@ -15,7 +15,6 @@
         "subtitle": "Posterior chain + lower leg loading",
         "location": "Home",
         "durationEstimate": "82–92 min",
-        "hasWarmup": true,
         "exercises": [
           {"id":"mon-m-s01","name":"Crossed Leg Forward Hold","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 1/15. Cross legs, fold forward gently."},
           {"id":"mon-m-s02","name":"Butterfly Stretch","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 2/15. Soles together, knees fall open. Works toward cross-legged sitting."},
@@ -188,7 +187,6 @@
         "subtitle": "Pressing strength + anti-rotation training",
         "location": "Home",
         "durationEstimate": "77–87 min",
-        "hasWarmup": true,
         "exercises": [
           {"id":"tue-m-s01","name":"Crossed Leg Forward Hold","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 1/15. Cross legs, fold forward gently."},
           {"id":"tue-m-s02","name":"Butterfly Stretch","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 2/15. Soles together, knees fall open. Works toward cross-legged sitting."},
@@ -347,7 +345,6 @@
         "subtitle": "Lower leg strengthening + proprioception + cardio",
         "location": "Home",
         "durationEstimate": "77–87 min",
-        "hasWarmup": true,
         "exercises": [
           {"id":"wed-m-s01","name":"Crossed Leg Forward Hold","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 1/15. Cross legs, fold forward gently."},
           {"id":"wed-m-s02","name":"Butterfly Stretch","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 2/15. Soles together, knees fall open. Works toward cross-legged sitting."},
@@ -486,7 +483,6 @@
         "subtitle": "Rotation restoration + pelvic awareness",
         "location": "Home",
         "durationEstimate": "52–57 min",
-        "hasWarmup": true,
         "exercises": [
           {"id":"wed-e-s01","name":"Crossed Leg Forward Hold","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 1/15. Cross legs, fold forward gently."},
           {"id":"wed-e-s02","name":"Butterfly Stretch","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 2/15. Soles together, knees fall open. Works toward cross-legged sitting."},
@@ -524,7 +520,6 @@
         "subtitle": "Back, biceps + functional carries for QL",
         "location": "Home",
         "durationEstimate": "77–87 min",
-        "hasWarmup": true,
         "exercises": [
           {"id":"thu-m-s01","name":"Crossed Leg Forward Hold","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 1/15. Cross legs, fold forward gently."},
           {"id":"thu-m-s02","name":"Butterfly Stretch","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 2/15. Soles together, knees fall open. Works toward cross-legged sitting."},
@@ -708,7 +703,6 @@
         "subtitle": "Squat symmetry + glutes + adductors + lower leg",
         "location": "Home",
         "durationEstimate": "82–92 min",
-        "hasWarmup": true,
         "exercises": [
           {"id":"fri-m-s01","name":"Crossed Leg Forward Hold","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 1/15. Cross legs, fold forward gently."},
           {"id":"fri-m-s02","name":"Butterfly Stretch","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 2/15. Soles together, knees fall open. Works toward cross-legged sitting."},
@@ -883,7 +877,6 @@
         "subtitle": "Technique, functional carries, light cardio",
         "location": "Home",
         "durationEstimate": "67–77 min",
-        "hasWarmup": true,
         "exercises": [
           {"id":"sat-m-s01","name":"Crossed Leg Forward Hold","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 1/15. Cross legs, fold forward gently."},
           {"id":"sat-m-s02","name":"Butterfly Stretch","targetSets":1,"targetReps":"30s hold","defaultRestSec":10,"category":"mobility","isTimeBased":true,"met":2.3,"durationSecPerSet":30,"notes":"Stretch 2/15. Soles together, knees fall open. Works toward cross-legged sitting."},
