@@ -446,7 +446,7 @@ export function App() {
             ex.section === 'warmup' || (typeof ex.id === 'string' && ex.id.match(/-s\d+$/) !== null);
 
           const isDailyRehabEx = (ex: any) =>
-            ex.section === 'daily-rehab' || (typeof ex.id === 'string' && ex.id.match(/-d0[2-8]$/) !== null);
+            ex.section === 'daily-rehab' || (typeof ex.id === 'string' && ex.id.match(/-d0[2-9]$/) !== null);
 
           const warmupStretches = activeSessionPlan?.exercises.filter(isWarmupEx) || [];
           const dailyRehabExercises = activeSessionPlan?.exercises.filter(isDailyRehabEx) || [];
