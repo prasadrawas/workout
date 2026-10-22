@@ -18,6 +18,18 @@
         "hasWarmup": true,
         "exercises": [
           {
+            "id": "mon-m-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
+          {
             "id": "mon-m-rdl",
             "name": "Dumbbell Romanian Deadlift",
             "targetSets": 3,
@@ -119,6 +131,18 @@
         "durationEstimate": "25–30 min",
         "exercises": [
           {
+            "id": "mon-e-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
+          {
             "id": "mon-e-hip-flexor",
             "name": "Half-Kneeling Hip Flexor Stretch",
             "targetSets": 2,
@@ -219,6 +243,18 @@
         "hasWarmup": true,
         "exercises": [
           {
+            "id": "tue-m-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
+          {
             "id": "tue-m-floor-press",
             "name": "Dumbbell Floor Press",
             "targetSets": 3,
@@ -317,6 +353,18 @@
         "durationEstimate": "10–15 min",
         "exercises": [
           {
+            "id": "tue-e-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
+          {
             "id": "tue-e-hip-flexor",
             "name": "Half-Kneeling Hip Flexor Stretch",
             "targetSets": 2,
@@ -367,6 +415,18 @@
         "durationEstimate": "45–55 min",
         "hasWarmup": true,
         "exercises": [
+          {
+            "id": "wed-m-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
           {
             "id": "wed-m-bike",
             "name": "Static Bike",
@@ -484,6 +544,18 @@
         "hasWarmup": true,
         "exercises": [
           {
+            "id": "wed-e-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
+          {
             "id": "wed-e-hip-flexor",
             "name": "Half-Kneeling Hip Flexor Stretch",
             "targetSets": 2,
@@ -569,6 +641,18 @@
         "durationEstimate": "45–55 min",
         "hasWarmup": true,
         "exercises": [
+          {
+            "id": "thu-m-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
           {
             "id": "thu-m-row",
             "name": "Dumbbell Bent-Over Row",
@@ -669,6 +753,18 @@
         "durationEstimate": "10–15 min",
         "exercises": [
           {
+            "id": "thu-e-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
+          {
             "id": "thu-e-hip-flexor",
             "name": "Half-Kneeling Hip Flexor Stretch",
             "targetSets": 2,
@@ -719,6 +815,18 @@
         "durationEstimate": "50–60 min",
         "hasWarmup": true,
         "exercises": [
+          {
+            "id": "fri-m-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
           {
             "id": "fri-m-goblet-squat",
             "name": "Goblet Squat — Depth Focus (Dumbbell)",
@@ -823,6 +931,18 @@
         "durationEstimate": "25–30 min",
         "exercises": [
           {
+            "id": "fri-e-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
+          {
             "id": "fri-e-hip-flexor",
             "name": "Half-Kneeling Hip Flexor Stretch",
             "targetSets": 2,
@@ -923,6 +1043,18 @@
         "hasWarmup": true,
         "exercises": [
           {
+            "id": "sat-m-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
+          {
             "id": "sat-m-bike",
             "name": "Static Bike",
             "targetSets": 1,
@@ -1012,6 +1144,18 @@
         "durationEstimate": "15 min",
         "exercises": [
           {
+            "id": "sat-e-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
+          {
             "id": "sat-e-hip-flexor",
             "name": "Half-Kneeling Hip Flexor Stretch",
             "targetSets": 2,
@@ -1061,6 +1205,18 @@
         "location": "Home",
         "durationEstimate": "40–50 min",
         "exercises": [
+          {
+            "id": "sun-m-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
           {
             "id": "sun-m-rom-hip-flexion",
             "name": "ROM Test: Hip Flexion (Supine Knee to Chest)",
@@ -1179,6 +1335,18 @@
         "location": "Home",
         "durationEstimate": "15 min",
         "exercises": [
+          {
+            "id": "sun-e-stretch-routine",
+            "name": "15-Min Full Body Stretch Routine",
+            "targetSets": 1,
+            "targetReps": "15 minutes — follow full routine",
+            "defaultRestSec": 0,
+            "category": "mobility",
+            "isTimeBased": true,
+            "met": 2.5,
+            "durationSecPerSet": 900,
+            "notes": "Full routine: (1) Full body warm-up (2) Leg stretches (3) Hip opening (4) Hamstring focus (5) Lower body release (6) Joint mobility (7) Upper body opener (8) Lunge stretches (9) Dynamic dog poses (10) Lunge variations (11) Cat cow flow (12) Camel pose — be cautious, monitor for anterior hip pinch (13) Child's pose relaxation (14) Seated stretching (15) Cooldown. Do this before every session."
+          },
           {
             "id": "sun-e-hip-flexor",
             "name": "Half-Kneeling Hip Flexor Stretch",
